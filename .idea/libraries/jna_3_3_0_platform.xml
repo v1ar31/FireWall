@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jna-3.3.0-platform">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/jna-3.3.0-platform.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
