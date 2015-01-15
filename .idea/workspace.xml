@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a6821ec-1f2a-4d7d-adb9-fe0127fbb871" name="Default" comment="deleted throw exceptions,  added for such functions returned val">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/DBAdapter.java" afterPath="$PROJECT_DIR$/src/sqldb/DBAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" afterPath="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FilterService.java" afterPath="$PROJECT_DIR$/src/FilterService.java" />
+    <list default="true" id="8a6821ec-1f2a-4d7d-adb9-fe0127fbb871" name="Default" comment="My first test, or how I will test it">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/HeaderTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FireWall.iml" afterPath="$PROJECT_DIR$/FireWall.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java" afterPath="$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/NetInformer.java" afterPath="$PROJECT_DIR$/src/sqldb/NetInformer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jna_3_3_0_platform.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jna_3_3_0_platform.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jna_4_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jna_4_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_7_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_7_2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PostgreSQL_JDBC.iws" />
@@ -94,13 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FireWallBlockListForm.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
+      <file leaf-file-name="Notification.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Notification.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="354" column="24" selection-start="13554" selection-end="13554" vertical-scroll-proportion="0.77150536" vertical-offset="4898" max-vertical-offset="5525">
-              <folding>
-                <element signature="e#9583#9591#0" expanded="true" />
-              </folding>
+            <state line="7" column="5" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,20 +115,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotifierFrame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
+      <file leaf-file-name="Header.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Header.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="28" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1887">
+            <state line="5" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2159">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Header.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Header.java">
+      <file leaf-file-name="HeaderTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/HeaderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="4" selection-start="4055" selection-end="4055" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="2159">
-              <folding />
+            <state line="46" column="5" selection-start="797" selection-end="797" vertical-scroll-proportion="0.460199" vertical-offset="597" max-vertical-offset="1088">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -230,6 +224,7 @@
         <option value="$PROJECT_DIR$/src/sqldb/NetInformer.java" />
         <option value="$PROJECT_DIR$/src/FilterService.java" />
         <option value="$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java" />
+        <option value="$PROJECT_DIR$/tests/HeaderTest.java" />
       </list>
     </option>
   </component>
@@ -316,21 +311,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="firewall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -355,7 +336,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lib/sqlite-jdbc-3.7.2.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lib" />
     <property name="FullScreen" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="OverrideImplement.combined" value="true" />
@@ -377,7 +358,30 @@
       <recent name="D:\Documents\Технолог\ТиМ прог\firewall\PostgreSQL_JDBC\src\sqldb" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in FireWall">
+    <configuration default="false" name="All in FireWall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="FireWall" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -614,9 +618,15 @@
         <option name="Make" enabled="false" />
       </method>
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.All in FireWall" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in FireWall" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -679,12 +689,17 @@
       <workItem from="1421334058136" duration="11499000" />
       <workItem from="1421345875683" duration="219000" />
       <workItem from="1421346512205" duration="260000" />
-      <workItem from="1421346915359" duration="3479000" />
+      <workItem from="1421346915359" duration="7065000" />
     </task>
+    <task id="LOCAL-00001" summary="deleted throw exceptions,  added for such functions returned val">
+      <created>1421351106074</created>
+      <updated>1421351106074</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252372000" />
+    <option name="totallyTimeSpent" value="255958000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -723,14 +738,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31659058" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31659058" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14787701" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36225265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3607306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -752,7 +767,9 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="deleted throw exceptions,  added for such functions returned val" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted throw exceptions,  added for such functions returned val" />
+    <MESSAGE value="My first test, or how I will test it" />
+    <option name="LAST_COMMIT_MESSAGE" value="My first test, or how I will test it" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -762,11 +779,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FireWall.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="31" selection-start="579" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="493">
@@ -986,11 +998,6 @@
         <state line="143" column="67" selection-start="4645" selection-end="4645" vertical-scroll-proportion="0.46746987" vertical-offset="2084" max-vertical-offset="4556" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Notification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="5" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -1020,13 +1027,6 @@
     <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="28" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1887">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Header.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="4" selection-start="4055" selection-end="4055" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="2159">
           <folding />
         </state>
       </provider>
@@ -1088,9 +1088,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="354" column="24" selection-start="13554" selection-end="13554" vertical-scroll-proportion="0.77150536" vertical-offset="4898" max-vertical-offset="5525">
+        <state line="243" column="9" selection-start="8684" selection-end="8684" vertical-scroll-proportion="0.66885245" vertical-offset="2890" max-vertical-offset="5525">
           <folding>
             <element signature="e#9583#9591#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Notification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="5" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2159">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/HeaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="5" selection-start="797" selection-end="797" vertical-scroll-proportion="0.460199" vertical-offset="597" max-vertical-offset="1088">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1172,7 +1195,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jna-3.3.0-platform</last-edited>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
