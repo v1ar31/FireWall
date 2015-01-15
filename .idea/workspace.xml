@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a6821ec-1f2a-4d7d-adb9-fe0127fbb871" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Main.java" />
+    <list default="true" id="8a6821ec-1f2a-4d7d-adb9-fe0127fbb871" name="Default" comment="deleted throw exceptions,  added for such functions returned val">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/DBAdapter.java" afterPath="$PROJECT_DIR$/src/sqldb/DBAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" afterPath="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FilterService.java" afterPath="$PROJECT_DIR$/src/FilterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FireWall.iml" afterPath="$PROJECT_DIR$/FireWall.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java" afterPath="$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/NetInformer.java" afterPath="$PROJECT_DIR$/src/sqldb/NetInformer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jna_3_3_0_platform.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jna_3_3_0_platform.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/jna_4_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jna_4_1_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_7_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_7_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PostgreSQL_JDBC.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,13 +76,90 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <file leaf-file-name="Observer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Observer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="84" selection-start="766" selection-end="766" vertical-scroll-proportion="0.16481775" vertical-offset="219" max-vertical-offset="1020">
+            <state line="3" column="17" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="25" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FireWallBlockListForm.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="354" column="24" selection-start="13554" selection-end="13554" vertical-scroll-proportion="0.77150536" vertical-offset="4898" max-vertical-offset="5525">
               <folding>
-                <element signature="e#1272#1413#0" expanded="true" />
-                <element signature="e#1402#1403#0" expanded="true" />
+                <element signature="e#9583#9591#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetInformer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sqldb/NetInformer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="27" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Observable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Observable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="27" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotifierFrame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="28" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1887">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Header.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Header.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="120" column="4" selection-start="4055" selection-end="4055" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="2159">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FireWall.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FireWall.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="0" selection-start="1621" selection-end="1621" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FilterService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FilterService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="115" column="167" selection-start="4242" selection-end="4242" vertical-scroll-proportion="0.0" vertical-offset="1826" max-vertical-offset="2567">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1421351006423" expanded="true" signature="3503:3610" placeholder="SELECT COUNT..ips..." />
+                <marker date="1421351006423" expanded="true" signature="3542:3609" placeholder="select null ..ips..." />
+                <marker date="1421351006423" expanded="true" signature="4132:4245" placeholder="SELECT COUNT..ports..." />
+                <marker date="1421351006423" expanded="true" signature="4173:4244" placeholder="select null ..ports..." />
               </folding>
             </state>
           </provider>
@@ -81,34 +168,7 @@
       <file leaf-file-name="DBAdapterSQLite.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="35" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="969">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FireWallBlockListForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="50" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="6579">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FireWallMainForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FireWallMainForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="0" selection-start="4113" selection-end="4113" vertical-scroll-proportion="0.0" vertical-offset="2210" max-vertical-offset="2550">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WinDivertLibrary.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WinDivertLibrary.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="7" selection-start="29" selection-end="49" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="5066">
+            <state line="4" column="0" selection-start="36" selection-end="36" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
               <folding />
             </state>
           </provider>
@@ -155,7 +215,6 @@
         <option value="$PROJECT_DIR$/src/DBAdapter.java" />
         <option value="$PROJECT_DIR$/src/DBAdapterSQLite.java" />
         <option value="$PROJECT_DIR$/src/sqldb/DBTableModel.java" />
-        <option value="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
         <option value="$PROJECT_DIR$/src/Observable.java" />
         <option value="$PROJECT_DIR$/src/Observer.java" />
         <option value="$PROJECT_DIR$/src/sqldb/Notification.java" />
@@ -164,11 +223,13 @@
         <option value="$PROJECT_DIR$/src/ForStartSQL.java" />
         <option value="$PROJECT_DIR$/src/NotifierFrame.java" />
         <option value="$PROJECT_DIR$/src/firewall_mainform.java" />
-        <option value="$PROJECT_DIR$/src/FilterService.java" />
         <option value="$PROJECT_DIR$/src/sqldb/FormForSQL.java" />
-        <option value="$PROJECT_DIR$/src/sqldb/NetInformer.java" />
-        <option value="$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
+        <option value="$PROJECT_DIR$/src/sqldb/DBAdapter.java" />
+        <option value="$PROJECT_DIR$/src/sqldb/NetInformer.java" />
+        <option value="$PROJECT_DIR$/src/FilterService.java" />
+        <option value="$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java" />
       </list>
     </option>
   </component>
@@ -222,7 +283,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -258,24 +319,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWallMainForm" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="firewall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -288,30 +331,12 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="firewall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -330,7 +355,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/sqlite-jdbc-3.7.2.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lib/sqlite-jdbc-3.7.2.jar!/" />
     <property name="FullScreen" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="OverrideImplement.combined" value="true" />
@@ -654,11 +679,12 @@
       <workItem from="1421334058136" duration="11499000" />
       <workItem from="1421345875683" duration="219000" />
       <workItem from="1421346512205" duration="260000" />
+      <workItem from="1421346915359" duration="3479000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248893000" />
+    <option name="totallyTimeSpent" value="252372000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -682,7 +708,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1374" height="750" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -697,19 +723,19 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31659058" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14787701" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36225265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36225265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32267883" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31659058" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -725,6 +751,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="deleted throw exceptions,  added for such functions returned val" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted throw exceptions,  added for such functions returned val" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -742,17 +770,16 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="31" selection-start="579" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="493">
-          <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="0" selection-start="3078" selection-end="3078" vertical-scroll-proportion="0.0" vertical-offset="1598" max-vertical-offset="4556">
-          <folding />
+          <folding>
+            <element signature="e#9583#9591#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -769,10 +796,7 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="14" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="493">
-          <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -789,17 +813,16 @@
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="244" column="49" selection-start="9424" selection-end="9424" vertical-scroll-proportion="0.0" vertical-offset="4148" max-vertical-offset="4182">
-          <folding />
+          <folding>
+            <element signature="e#9583#9591#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="14" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="493">
-          <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -816,17 +839,16 @@
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="164" column="0" selection-start="5917" selection-end="5917" vertical-scroll-proportion="0.0" vertical-offset="2788" max-vertical-offset="4182">
-          <folding />
+          <folding>
+            <element signature="e#9583#9591#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="8" selection-start="409" selection-end="657" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="442">
-          <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -843,17 +865,16 @@
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="34" selection-start="1723" selection-end="1723" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="4522">
-          <folding />
+          <folding>
+            <element signature="e#9583#9591#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="10" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -865,17 +886,16 @@
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="39" selection-start="2636" selection-end="2636" vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="1530">
-          <folding />
+          <folding>
+            <element signature="e#9583#9591#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="11" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -887,17 +907,16 @@
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="34" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="663">
-          <folding />
+          <folding>
+            <element signature="e#9583#9591#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="29" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -909,17 +928,16 @@
     <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="34" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0" vertical-offset="177" max-vertical-offset="714">
-          <folding />
+          <folding>
+            <element signature="e#9583#9591#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -963,24 +981,9 @@
         <state line="48" column="0" selection-start="1274" selection-end="1274" vertical-scroll-proportion="2.1594594" vertical-offset="0" max-vertical-offset="1020" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="292" selection-end="292" vertical-scroll-proportion="0.5325301" vertical-offset="0" max-vertical-offset="425" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sqldb/DBTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="143" column="67" selection-start="4645" selection-end="4645" vertical-scroll-proportion="0.46746987" vertical-offset="2084" max-vertical-offset="4556" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Observable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="27" selection-start="173" selection-end="173" vertical-scroll-proportion="0.16164818" vertical-offset="0" max-vertical-offset="631" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Notification.java">
@@ -993,41 +996,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FireWall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="1621" selection-end="1621" vertical-scroll-proportion="0.0" vertical-offset="678" max-vertical-offset="1530" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Header.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="4" selection-start="4055" selection-end="4055" vertical-scroll-proportion="0.0" vertical-offset="699" max-vertical-offset="2159" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="28" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0" vertical-offset="344" max-vertical-offset="1972" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="9" selection-start="2242" selection-end="2242" vertical-scroll-proportion="0.08947369" vertical-offset="1003" max-vertical-offset="2618" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqldb/NetInformer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="28" selection-start="72" selection-end="72" vertical-scroll-proportion="0.08082409" vertical-offset="0" max-vertical-offset="782" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WinDivertLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="7" selection-start="29" selection-end="49" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5066">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="50" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0" vertical-offset="1037" max-vertical-offset="6426">
           <folding />
         </state>
       </provider>
@@ -1039,19 +1010,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="35" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="969">
+        <state line="47" column="20" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="935">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="84" selection-start="766" selection-end="766" vertical-scroll-proportion="0.16481775" vertical-offset="219" max-vertical-offset="1020">
+        <state line="28" column="28" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1887">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="4" selection-start="4055" selection-end="4055" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="2159">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FireWall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="1621" selection-end="1621" vertical-scroll-proportion="0.0" vertical-offset="920" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="27" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="17" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="25" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="36" selection-end="36" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqldb/NetInformer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FilterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="167" selection-start="4242" selection-end="4242" vertical-scroll-proportion="0.0" vertical-offset="1826" max-vertical-offset="2567">
           <folding>
-            <element signature="e#1272#1413#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1421351006423" expanded="true" signature="3503:3610" placeholder="SELECT COUNT..ips..." />
+            <marker date="1421351006423" expanded="true" signature="3542:3609" placeholder="select null ..ips..." />
+            <marker date="1421351006423" expanded="true" signature="4132:4245" placeholder="SELECT COUNT..ports..." />
+            <marker date="1421351006423" expanded="true" signature="4173:4244" placeholder="select null ..ports..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="354" column="24" selection-start="13554" selection-end="13554" vertical-scroll-proportion="0.77150536" vertical-offset="4898" max-vertical-offset="5525">
+          <folding>
+            <element signature="e#9583#9591#0" expanded="true" />
           </folding>
         </state>
       </provider>

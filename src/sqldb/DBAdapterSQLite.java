@@ -17,35 +17,54 @@ public class DBAdapterSQLite extends DBAdapter {
     }
 
     @Override
-    protected int insert(String str) throws SQLException {
+    protected int insert(String str) {
         synchronized (statement) {
-            statement.execute(str);
+            try {
+                statement.execute(str);
+                return 0;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return 1;
+            }
         }
-        return 0;
     }
 
     @Override
-    protected int delete(String str) throws SQLException {
+    protected int delete(String str) {
         synchronized (statement) {
-            statement.execute(str);
+            try {
+                statement.execute(str);
+                return 0;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return 1;
+            }
         }
-        return 0;
     }
 
     @Override
-    protected ResultSet select(String str) throws SQLException {
-        ResultSet resSet;
+    protected ResultSet select(String str) {
+        ResultSet resSet = null;
         synchronized (statement) {
-            resSet = statement.executeQuery(str);
+            try {
+                resSet = statement.executeQuery(str);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return resSet;
     }
 
     @Override
-    protected int update(String str) throws SQLException {
+    protected int update(String str) {
         synchronized (statement) {
-            statement.execute(str);
+            try {
+                statement.execute(str);
+                return 0;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return 1;
+            }
         }
-        return 0;
     }
 }

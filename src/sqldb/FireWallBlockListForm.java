@@ -153,24 +153,28 @@ public class FireWallBlockListForm extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    InetAddress inetAddress = null;
                     if (netAddress.getText().trim().compareTo("") != 0) {
                         InetAddress.getByName(netAddress.getText().trim());
 
-                        db.insert("insert into names (name) values ('" + netAddress.getText().trim() + "')");
+                        int res = db.insert("insert into names (name) values ('" + netAddress.getText().trim() + "')");
+                        if (res == 0) {
+                            int indexName;
+                            ResultSet resSet = db.select("select * from names where name = '" + netAddress.getText().trim() + "'");
+                            indexName = 0;
+                            if (resSet != null) {
+                                while (resSet.next()) {
+                                    indexName = resSet.getInt("id");
+                                }
+                            }
+                            if (indexName != 0) {
+                                Thread thread = new NetInformer(netAddress.getText().trim(), indexName, db);
+                                thread.start();
+                                thread.join();
 
-                        int indexName;
-                        ResultSet resSet = db.select("select * from names where name = '" + netAddress.getText().trim() + "'");
-                        indexName = 0;
-                        while (resSet.next()) {
-                            indexName = resSet.getInt("id");
+                                updateDB();
+                                netAddress.setText("");
+                            }
                         }
-                        Thread thread = new NetInformer(netAddress.getText().trim(), indexName, db);
-                        thread.start();
-                        thread.join();
-
-                        updateDB();
-                        netAddress.setText("");
                     }
                 } catch (SQLException | InterruptedException | IOException e1) {
                     e1.printStackTrace();
@@ -186,20 +190,20 @@ public class FireWallBlockListForm extends JFrame{
 
                         ResultSet resSet = db.select("select * from names where name = '" + netAddress.getText().trim() + "'");
                         int indexName = 0;
-                        while (resSet.next()) {
-                            indexName = resSet.getInt("id");
+                        if (resSet != null) {
+                            while (resSet.next()) {
+                                indexName = resSet.getInt("id");
+                            }
                         }
                         if (indexName  > 0) {
-                                db.delete("delete from names where id = " + Integer.toString(indexName));
-                                db.delete("delete from ips where namesid = " + Integer.toString(indexName));
+                            db.delete("delete from names where id = " + Integer.toString(indexName));
+                            db.delete("delete from ips where namesid = " + Integer.toString(indexName));
+                            updateDB();
+                            netAddress.setText("");
                         }
-                        updateDB();
-
-                        netAddress.setText("");
                     }
                 } catch (SQLException e1) {
                     e1.printStackTrace();
-
                 }
             }
         });
@@ -212,7 +216,7 @@ public class FireWallBlockListForm extends JFrame{
         FormTable.add(table_ports);
         // создание моделей БД
         PostgresDB = new ArrayList<DBTableModel>(); // модель для работы с БД
-        for ( int i = 0; i < ListTablesDB.length; i++) {
+        for (String aListTablesDB : ListTablesDB) {
             PostgresDB.add(new DBTableModel());
         }
         QuerySQL_TableModel = new DBTableModel();
@@ -228,19 +232,20 @@ public class FireWallBlockListForm extends JFrame{
 
     }
 
-    private void getSQLquery (String query) {
+    private int getSQLquery (String query) {
         try {
             ResultSet resSet = db.select(query);
             QuerySQL_TableModel.setMetaDataForQuery(resSet);
             QuerySQL_TableModel.setDataSourceForQuery(resSet); // заполняем
-
+            return 0;
         } catch (Exception e) {
             textArea_sqlqury.append("\n\n" + e);
+            return 1;
         }
     }
 
     // обновляем записей формы
-    public void updateDB ()  {
+    public int updateDB ()  {
         try {
             for (int i = 0; i < ListTablesDB.length; i++) {
                 ResultSet resSet = db.select("SELECT * FROM " + ListTablesDB[ i ] );
@@ -254,16 +259,17 @@ public class FireWallBlockListForm extends JFrame{
                 // добавление combobox на таблицу
                 for (int j = 0; j < PostgresDB.get(i).nameWithID.size(); j++) {
                     Set<String> keys = PostgresDB.get(i).hashMaps.get(j).keySet();
-                    JComboBox combo = new JComboBox(keys.toArray());
+                    JComboBox<Object> combo = new JComboBox<Object>(keys.toArray());
                     TableColumn tbcol = FormTable.get(i).getColumnModel()
                             .getColumn(PostgresDB.get(i).columnNames
                                     .indexOf(PostgresDB.get(i).nameWithID.get(j) + "id"));
                     tbcol.setCellEditor(new DefaultCellEditor(combo));
                 }
             }
+            return 0;
         } catch (Exception e) {
             e.printStackTrace();
-            updateDB();
+            return updateDB();
         }
     }
 
@@ -302,15 +308,8 @@ public class FireWallBlockListForm extends JFrame{
     public class deleteSelectRecordFromBD extends wrapper {
         @Override
         protected int method_sql(int selectRow, DBTableModel DB)  {
-            try {
-                db.delete("DELETE FROM " + ListTablesDB[tabbedPane.getSelectedIndex()]
-                        + " WHERE " + "id = " + DB.ids.get(selectRow));
-                return 0;
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null,"ОШИБКА. " + e);
-                e.printStackTrace();
-                return 1;
-            }
+            return  db.delete("DELETE FROM " + ListTablesDB[tabbedPane.getSelectedIndex()]
+                    + " WHERE " + "id = " + DB.ids.get(selectRow));
         }
     }
 
@@ -320,7 +319,7 @@ public class FireWallBlockListForm extends JFrame{
             String tmp = "";
             String tmp2 = "";
             for (int i = 0; i < DB.getColumnCount(); i++) {
-                if (DB.columnNames.get(i).indexOf("id") != -1) {
+                if (DB.columnNames.get(i).contains("id")) {
                     HashMap<String, String> hm = DB.hashMaps.get(DB.nameWithID.indexOf( DB.columnNames.get(i).replaceAll("id", "") ));
                     tmp += "'" + hm.get(((ArrayList<String>)DB.data.get(selectRow)).get(i)) + "'";
                 } else {
@@ -333,14 +332,8 @@ public class FireWallBlockListForm extends JFrame{
                 }
             }
             // делает INSERT INTO Messages () VALUES( tmp )"
-            try {
-                db.insert("INSERT INTO " + ListTablesDB[tabbedPane.getSelectedIndex()]
-                        + "(" + tmp2 + ")" + " VALUES(" + tmp + ")");
-                return 0;
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return 1;
-            }
+            return  db.insert("INSERT INTO " + ListTablesDB[tabbedPane.getSelectedIndex()]
+                    + "(" + tmp2 + ")" + " VALUES(" + tmp + ")");
 
         }
     }
@@ -351,7 +344,7 @@ public class FireWallBlockListForm extends JFrame{
             String tmp = "";
             for (int i = 0; i < DB.getColumnCount(); i++) {
                 tmp += DB.columnNames.get(i) + " = ";
-                if (DB.columnNames.get(i).indexOf("id") != -1) {
+                if (DB.columnNames.get(i).contains("id")) {
                     HashMap<String, String> hm = DB.hashMaps.get(DB.nameWithID.indexOf( DB.columnNames.get(i).replaceAll("id", "") ));
                     String val = hm.get(((ArrayList<String>)DB.data.get(selectRow)).get(i));
                     if (val.compareTo("null") != 0) {
@@ -367,14 +360,8 @@ public class FireWallBlockListForm extends JFrame{
                 }
             }
 
-            try {
-                db.update("UPDATE " + ListTablesDB[tabbedPane.getSelectedIndex()]
-                        + " SET " + tmp + " WHERE " + "id = " + DB.ids.get(selectRow));
-                return 0;
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return 1;
-            }
+            return db.update("UPDATE " + ListTablesDB[tabbedPane.getSelectedIndex()]
+                    + " SET " + tmp + " WHERE " + "id = " + DB.ids.get(selectRow));
 
         }
     }
