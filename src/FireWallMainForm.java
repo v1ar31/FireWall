@@ -27,7 +27,7 @@ public class FireWallMainForm extends JFrame{
         setResizable(false);
         setTitle("Фаерволл v0.1");
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(MainPanel);
         pack();
         setLocationRelativeTo(null);
@@ -41,24 +41,28 @@ public class FireWallMainForm extends JFrame{
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.fireWall.OpenFilter();
-                Main.fireWall.StartFilter();
+                if (!Main.fireWall.isstarted) {
+                    Main.fireWall.StartFilter();
+                }
             }
         });
         stop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.fireWall.StopFilter();
-                Main.fireWall.CloseFilter();
+                if (Main.fireWall.isstarted) {
+                    Main.fireWall.StopFilter();
+                }
             }
         });
 
-        setTrayIcon();
+        if (setTrayIcon() != 0) {
+            setVisible(true);
+        }
     }
 
-    public static void setTrayIcon() {
+    public static int setTrayIcon() {
         if(! SystemTray.isSupported() ) {
-            return;
+            return 1;
         }
 
         PopupMenu trayMenu = new PopupMenu();
@@ -74,9 +78,6 @@ public class FireWallMainForm extends JFrame{
 
         MenuItem item = new MenuItem("Закрыть");
         trayMenu.add(item);
-
-        MenuItem itemNotify = new MenuItem("Оповещение");
-        trayMenu.add(itemNotify);
 
 
         final URL imageStay = Main.class.getResource(FW_STAY);
@@ -106,22 +107,26 @@ public class FireWallMainForm extends JFrame{
         stopitem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //ForStartSQL.fireWall.StopFilter();
-                Main.fireWall.CloseFilter();
-                trayIcon.displayMessage(APPLICATION_NAME, "Приложение остановлено",
-                        TrayIcon.MessageType.INFO);
-                trayIcon.setImage(Toolkit.getDefaultToolkit().getImage(imageStay));
+                if (Main.fireWall.isstarted) {
+                    Main.fireWall.StopFilter();
+
+                    trayIcon.displayMessage(APPLICATION_NAME, "Приложение остановлено",
+                            TrayIcon.MessageType.INFO);
+                    trayIcon.setImage(Toolkit.getDefaultToolkit().getImage(imageStay));
+                }
             }
         });
 
         startitem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //ForStartSQL.fireWall.OpenFilter();
-                Main.fireWall.StartFilter();
-                trayIcon.displayMessage(APPLICATION_NAME, "Приложение запущено",
-                        TrayIcon.MessageType.INFO);
-                trayIcon.setImage(Toolkit.getDefaultToolkit().getImage(imageWork));
+                if (!Main.fireWall.isstarted) {
+                    Main.fireWall.StartFilter();
+
+                    trayIcon.displayMessage(APPLICATION_NAME, "Приложение запущено",
+                            TrayIcon.MessageType.INFO);
+                    trayIcon.setImage(Toolkit.getDefaultToolkit().getImage(imageWork));
+                }
             }
         });
 
@@ -132,13 +137,9 @@ public class FireWallMainForm extends JFrame{
             }
         });
 
-        itemNotify.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new NotifierFrame("IP-адрес", "Заблокирован 255.255.255.255");
-            }
-        });
 
+
+        return 0;
     }
 
 }

@@ -3,10 +3,6 @@ import sqldb.FireWallBlockListForm;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.sql.SQLException;
 
 /**
@@ -41,7 +37,7 @@ public class Main {
 
         fireWall = new FireWall();
         Notification notification = new Notification();
-        fireWall.addObserver(notification);
+        fireWall.registerObserver(notification);
 
 
         /**

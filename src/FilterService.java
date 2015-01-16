@@ -1,51 +1,42 @@
 import com.sun.jna.Native;
-import com.sun.jna.platform.win32.WinNT;
-import com.sun.jna.ptr.IntByReference;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * Created by v1ar on 14.01.15.
  */
-public class FilterService extends Thread implements Observable{
+public class FilterService extends Thread {
     public boolean isStarted = false;
-    final static int MAXBUF = 65528;
-    private WinDivertLibrary lib;
-    private WinNT.HANDLE handle;
 
-    private ArrayList<Observer> observers;
+
+    public WinDivertDriver windivdr;
 
     public FilterService(){
-        observers = new ArrayList<>();
+        windivdr = new WinDivertDriver();
     }
 
-    public void init (WinDivertLibrary lib, WinNT.HANDLE handle) {
-        this.lib = lib;
-        this.handle = handle;
-    }
     public void run() {
-        isStarted = true;
+        if (windivdr.openWinDivert() != 0) {
+            isStarted = false;
+            System.out.println("Error in run FilterServece ");
+        } else {
+            isStarted = true;
+        }
 
-        // основа для пакета - MAXBUF байтов
-        byte[] packetBytes  = new byte[MAXBUF];
-
-        // возвращаемые параметры для WinDivertRecv
-        WinDivertLibrary.WINDIVERT_ADDRESS addr = new WinDivertLibrary.WINDIVERT_ADDRESS();
-        IntByReference packet_len = new IntByReference();
-
-        while (true) {
+        while (isStarted) {
             if(!interrupted()) {
 
                 // Read a matching packet.
-                if (!lib.WinDivertRecv(handle, packetBytes, MAXBUF, addr, packet_len)) {
+                //WinDivertDriver.Packet recpacket = new WinDivertDriver.Packet();
+                WinDivertDriver.Packet recpacket = windivdr.recvPkt();
+                if (recpacket == null) {
                     System.out.println("warning: failed to read packet"
                             + Integer.toHexString(Native.getLastError()));
                     continue;
                 }
 
-                Header packet = new Header(packetBytes);
+                Header packet = new Header(recpacket.packetBytes);
                 if (packet.name.compareTo("IPv4") == 0) {
                     Header.HeaderIPv4 ipv4 = (Header.HeaderIPv4)packet.struct_packet;
 
@@ -55,7 +46,11 @@ public class FilterService extends Thread implements Observable{
                                 ipv4.Version, ipv4.IHL,
                                 ipv4.Protocol, ipv4.SourceIPAddress,
                                 ipv4.DestinationIPAddress);*/
-                        notifyObservers();
+                        if (recpacket.addr.Direction == WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND) {
+                            Main.fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND, FireWall.IP, ipv4.DestinationIPAddress);
+                        } else {
+                            Main.fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_INBOUND, FireWall.IP, ipv4.SourceIPAddress);
+                        }
                         continue;
                     }
 
@@ -63,9 +58,16 @@ public class FilterService extends Thread implements Observable{
                     if (ipv4.Protocol == 0x11 || ipv4.Protocol == 0x06) {
 
                         if (blockPortListContains(Integer.toString(ipv4.SourcePort), Integer.toString(ipv4.DestinationPort))) {
-                            /*System.out.print("Block  ");
-                            System.out.printf("srcprt = %d, dstprt = %d %n", ipv4.SourcePort, ipv4.DestinationPort);*/
-                            notifyObservers();
+                            //System.out.print("Block  ");
+                            //System.out.printf("srcprt = %d, dstprt = %d %n", ipv4.SourcePort, ipv4.DestinationPort);
+
+                            if (recpacket.addr.Direction == WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND) {
+                                Main.fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND, FireWall.PORT,
+                                        Integer.toString(ipv4.DestinationPort));
+                            } else {
+                                Main.fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_INBOUND, FireWall.PORT,
+                                        Integer.toString(ipv4.SourcePort));
+                            }
                             continue;
                         }
                     }
@@ -75,18 +77,17 @@ public class FilterService extends Thread implements Observable{
                     // pass
                 }
 
-                if (!lib.WinDivertSend(handle, packetBytes, packet_len.getValue(), addr, 0)) {
-                    System.out.println("warning: failed to reinject packet (%d)\n"
+                if (windivdr.sendPkt(recpacket) != 0) {
+                    System.out.println("warning: failed to read packet"
                             + Integer.toHexString(Native.getLastError()));
                 }
 
             } else {
-                //System.out.println("break");
-                break;
+                windivdr.closeWinDivert();
+                isStarted = false;
             }
         }
 
-        isStarted = false;
     }
 
     public boolean blockIPListContains (String source, String dest)  {
@@ -126,20 +127,5 @@ public class FilterService extends Thread implements Observable{
         return indexName > 0;
     }
 
-    @Override
-    public void registerObserver(Observer o) {
-        observers.add(o);
-    }
 
-    @Override
-    public void removeObserver(Observer o) {
-        observers.remove(o);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (Observer o: observers) {
-            o.update();
-        }
-    }
 }

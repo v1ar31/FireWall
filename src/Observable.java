@@ -4,5 +4,5 @@
 public interface Observable {
     void registerObserver(Observer o);
     void removeObserver(Observer o);
-    void notifyObservers();
+    void notifyObservers(int direction, int type, String body);
 }

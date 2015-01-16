@@ -1,62 +1,28 @@
-import com.sun.jna.Native;
-import com.sun.jna.platform.win32.WinNT;
-
-import static com.sun.jna.platform.win32.W32Errors.ERROR_INVALID_PARAMETER;
-import static com.sun.jna.platform.win32.WinBase.INVALID_HANDLE_VALUE;
+import java.util.ArrayList;
 
 /**
  * Created by v1ar on 13.01.15.
  */
-public class FireWall {
-    public WinDivertLibrary lib;
-    public WinNT.HANDLE handle;
+public class FireWall implements Observable{
+    final public static int PORT = 0x10;
+    final public static int IP = 0x11;
+
+    public ArrayList<Observer> observers;
 
     public FilterService filterService;
 
-    public boolean openedFilter;
     public boolean isstarted;
 
 
     public FireWall() {
-        //observers = new ArrayList<>();
-        lib = WinDivertLibrary.INSTANCE;
-        openedFilter = false;
         isstarted = false;
-        filterService = new FilterService();
+        observers = new ArrayList<>();
     }
 
-    public int OpenFilter () {
-        if (!openedFilter) {
-            handle = lib.WinDivertOpen("true", WinDivertLibrary.WINDIVERT_LAYER.WINDIVERT_LAYER_NETWORK, (short)0, 0);
-
-            if (handle == INVALID_HANDLE_VALUE) {
-                if (Native.getLastError() == ERROR_INVALID_PARAMETER) {
-                    return -2;
-                } else {
-                    return -3;
-                }
-            }
-
-            openedFilter = true;
-        }
-
-        return 0;
-    }
-
-    public int CloseFilter() {
-        if (openedFilter) {
-            if(!lib.DivertClose(handle)) {
-                return -1;
-            }
-            openedFilter = false;
-        }
-        return 0;
-    }
 
     public int StartFilter() {
         if (!isstarted) {
-            OpenFilter();
-            filterService.init(lib, handle);
+            filterService = new FilterService();
             filterService.start();
             isstarted = true;
             return 0;
@@ -67,22 +33,26 @@ public class FireWall {
     public int StopFilter() {
         if (isstarted) {
             filterService.interrupt();
-            CloseFilter();
             isstarted = false;
             return 0;
         }
         return  -1;
     }
 
-    public void addObserver (Observer o) {
-        if (openedFilter) {
-            filterService.removeObserver(o);
-        }
+    @Override
+    public void registerObserver(Observer o) {
+        observers.add(o);
     }
 
-    public void delObserver (Observer o) {
-        if (openedFilter) {
-            filterService.removeObserver(o);
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers(int direction, int type, String body) {
+        for (Observer o: observers) {
+            o.update(direction, type, body);
         }
     }
 }
