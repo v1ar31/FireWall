@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a6821ec-1f2a-4d7d-adb9-fe0127fbb871" name="Default" comment="Repair notification, added WinDivertDriver">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lib/junit-4.10.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/WinDivertDriver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Journal.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JournalFrame.form" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JournalFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" afterPath="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FilterService.java" afterPath="$PROJECT_DIR$/src/FilterService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FireWall.java" afterPath="$PROJECT_DIR$/src/FireWall.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FireWallMainForm.java" afterPath="$PROJECT_DIR$/src/FireWallMainForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Notification.java" afterPath="$PROJECT_DIR$/src/Notification.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NotifierFrame.java" afterPath="$PROJECT_DIR$/src/NotifierFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Observable.java" afterPath="$PROJECT_DIR$/src/Observable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Observer.java" afterPath="$PROJECT_DIR$/src/Observer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PostgreSQL_JDBC.iws" />
@@ -79,13 +77,14 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="55" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.0" vertical-offset="403" max-vertical-offset="1071">
+            <state line="42" column="0" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1224">
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1164#1305#0" expanded="true" />
-                <element signature="e#1294#1295#0" expanded="true" />
-                <element signature="e#1341#1525#0" expanded="true" />
-                <element signature="e#1514#1515#0" expanded="true" />
+                <element signature="e#1248#1393#0" expanded="true" />
+                <element signature="e#1382#1383#0" expanded="true" />
+                <element signature="e#1473#1614#0" expanded="true" />
+                <element signature="e#1603#1604#0" expanded="true" />
+                <element signature="e#1650#1834#0" expanded="true" />
+                <element signature="e#1823#1824#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,81 +93,25 @@
       <file leaf-file-name="FireWallMainForm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FireWallMainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="33" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2465">
-              <folding>
-                <element signature="e#917#1088#0" expanded="true" />
-                <element signature="e#1077#1078#0" expanded="true" />
-                <element signature="e#1123#1363#0" expanded="true" />
-                <element signature="e#1352#1353#0" expanded="true" />
-                <element signature="e#1397#1635#0" expanded="true" />
-                <element signature="e#1624#1625#0" expanded="true" />
-                <element signature="e#2857#3014#0" expanded="true" />
-                <element signature="e#3003#3004#0" expanded="true" />
-                <element signature="e#3053#3524#0" expanded="true" />
-                <element signature="e#3513#3514#0" expanded="true" />
-                <element signature="e#3564#4034#0" expanded="true" />
-                <element signature="e#4023#4024#0" expanded="true" />
-                <element signature="e#4071#4242#0" expanded="true" />
-                <element signature="e#4231#4232#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WinDivertDriver.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WinDivertDriver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="57" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1496">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1018#1019#0" expanded="true" />
-                <element signature="e#1044#1045#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotifierFrame.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="54" selection-start="2999" selection-end="2999" vertical-scroll-proportion="0.37352246" vertical-offset="1474" max-vertical-offset="2414">
-              <folding>
-                <element signature="e#1843#2609#0" expanded="true" />
-                <element signature="e#2598#2599#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Notification.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Notification.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="16" selection-start="733" selection-end="733" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+            <state line="32" column="8" selection-start="851" selection-end="879" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="2040">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Observable.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Observable.java">
+      <file leaf-file-name="JournalFrame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JournalFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="9" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+            <state line="16" column="22" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="697">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilterService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FilterService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="145" selection-start="4095" selection-end="4095" vertical-scroll-proportion="0.0" vertical-offset="1462" max-vertical-offset="2278">
-              <folding>
-                <marker date="1421421063072" expanded="true" signature="4007:4114" placeholder="SELECT COUNT..ips..." />
-                <marker date="1421421063072" expanded="true" signature="4046:4113" placeholder="select null ..ips..." />
-                <marker date="1421421063072" expanded="true" signature="4636:4749" placeholder="SELECT COUNT..ports..." />
-                <marker date="1421421063072" expanded="true" signature="4677:4748" placeholder="select null ..ports..." />
-              </folding>
-            </state>
+      <file leaf-file-name="JournalFrame.form" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/JournalFrame.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -216,20 +159,23 @@
         <option value="$PROJECT_DIR$/src/ForStartSQL.java" />
         <option value="$PROJECT_DIR$/src/firewall_mainform.java" />
         <option value="$PROJECT_DIR$/src/sqldb/FormForSQL.java" />
-        <option value="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
         <option value="$PROJECT_DIR$/src/sqldb/DBAdapter.java" />
         <option value="$PROJECT_DIR$/src/sqldb/NetInformer.java" />
         <option value="$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java" />
         <option value="$PROJECT_DIR$/tests/HeaderTest.java" />
         <option value="$PROJECT_DIR$/src/WinDivertDriver.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Observer.java" />
         <option value="$PROJECT_DIR$/src/Observable.java" />
-        <option value="$PROJECT_DIR$/src/FireWall.java" />
-        <option value="$PROJECT_DIR$/src/FilterService.java" />
         <option value="$PROJECT_DIR$/src/Notification.java" />
-        <option value="$PROJECT_DIR$/src/FireWallMainForm.java" />
         <option value="$PROJECT_DIR$/src/NotifierFrame.java" />
+        <option value="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
+        <option value="$PROJECT_DIR$/src/FilterService.java" />
+        <option value="$PROJECT_DIR$/src/FireWall.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Journal.java" />
+        <option value="$PROJECT_DIR$/src/FireWallMainForm.java" />
+        <option value="$PROJECT_DIR$/src/JournalFrame.java" />
+        <option value="$PROJECT_DIR$/src/JournalFrame.form" />
       </list>
     </option>
   </component>
@@ -318,6 +264,42 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FireWall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="firewall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JournalFrame" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FireWall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="firewall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FireWallMainForm" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -740,7 +722,7 @@
       <workItem from="1421334058136" duration="11499000" />
       <workItem from="1421345875683" duration="219000" />
       <workItem from="1421346512205" duration="260000" />
-      <workItem from="1421346915359" duration="24138000" />
+      <workItem from="1421346915359" duration="27231000" />
     </task>
     <task id="LOCAL-00001" summary="deleted throw exceptions,  added for such functions returned val">
       <created>1421351106074</created>
@@ -750,11 +732,15 @@
       <created>1421356481074</created>
       <updated>1421356481074</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Repair notification, added WinDivertDriver">
+      <created>1421421327612</created>
+      <updated>1421421327612</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273031000" />
+    <option name="totallyTimeSpent" value="276124000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -780,10 +766,11 @@
     <frame x="-4" y="-4" width="1374" height="750" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1852123" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1852123" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -793,50 +780,20 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31659058" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31659058" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14787701" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3607306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14787701" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3607306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32267883" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14787701" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3607306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1852123" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32267883" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39878234" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31659058" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USERS">
@@ -864,34 +821,16 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="0" selection-start="3078" selection-end="3078" vertical-scroll-proportion="0.0" vertical-offset="1598" max-vertical-offset="4556">
-          <folding>
-            <element signature="e#9583#9591#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqldb/FireWallBlockListForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqldb/DBTableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="33" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2261" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="14" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="493">
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1305#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1341#1525#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -919,11 +858,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="14" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="493">
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1305#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1341#1525#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -951,11 +891,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="8" selection-start="409" selection-end="657" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="442">
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1305#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1341#1525#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -983,11 +924,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="10" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1305#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1341#1525#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1010,11 +952,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="11" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1305#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1341#1525#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1037,11 +980,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="29" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1305#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1341#1525#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1064,11 +1008,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1305#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1341#1525#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1162,13 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="36" selection-end="36" vertical-scroll-proportion="0.17258883" vertical-offset="0" max-vertical-offset="1292">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WinDivertLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="28" selection-start="1286" selection-end="1314" vertical-scroll-proportion="-3.6538463" vertical-offset="449" max-vertical-offset="5066">
@@ -1185,71 +1123,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="55" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.0" vertical-offset="403" max-vertical-offset="1071">
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1305#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1341#1525#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FireWall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1135" selection-end="1135" vertical-scroll-proportion="0.0" vertical-offset="694" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Notification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="16" selection-start="733" selection-end="733" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Observable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="9" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+        <state line="5" column="9" selection-start="118" selection-end="118" vertical-scroll-proportion="0.13470681" vertical-offset="0" max-vertical-offset="631">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FilterService.java">
+    <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="145" selection-start="4095" selection-end="4095" vertical-scroll-proportion="0.0" vertical-offset="1462" max-vertical-offset="2278">
-          <folding>
-            <marker date="1421421063072" expanded="true" signature="4007:4114" placeholder="SELECT COUNT..ips..." />
-            <marker date="1421421063072" expanded="true" signature="4046:4113" placeholder="select null ..ips..." />
-            <marker date="1421421063072" expanded="true" signature="4636:4749" placeholder="SELECT COUNT..ports..." />
-            <marker date="1421421063072" expanded="true" signature="4677:4748" placeholder="select null ..ports..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FireWallMainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="33" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2465">
-          <folding>
-            <element signature="e#917#1088#0" expanded="true" />
-            <element signature="e#1077#1078#0" expanded="true" />
-            <element signature="e#1123#1363#0" expanded="true" />
-            <element signature="e#1352#1353#0" expanded="true" />
-            <element signature="e#1397#1635#0" expanded="true" />
-            <element signature="e#1624#1625#0" expanded="true" />
-            <element signature="e#2857#3014#0" expanded="true" />
-            <element signature="e#3003#3004#0" expanded="true" />
-            <element signature="e#3053#3524#0" expanded="true" />
-            <element signature="e#3513#3514#0" expanded="true" />
-            <element signature="e#3564#4034#0" expanded="true" />
-            <element signature="e#4023#4024#0" expanded="true" />
-            <element signature="e#4071#4242#0" expanded="true" />
-            <element signature="e#4231#4232#0" expanded="true" />
-          </folding>
+        <state line="19" column="10" selection-start="464" selection-end="464" vertical-scroll-proportion="0.35023773" vertical-offset="102" max-vertical-offset="1292">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1264,14 +1148,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/FilterService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="54" selection-start="2999" selection-end="2999" vertical-scroll-proportion="0.37352246" vertical-offset="1474" max-vertical-offset="2414">
+        <state line="49" column="0" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.0" vertical-offset="651" max-vertical-offset="2278">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FireWall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="36" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Notification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="226" selection-end="226" vertical-scroll-proportion="0.44208038" vertical-offset="0" max-vertical-offset="629">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Journal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="60" selection-start="547" selection-end="547" vertical-scroll-proportion="0.56264776" vertical-offset="0" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1224">
           <folding>
-            <element signature="e#1843#2609#0" expanded="true" />
-            <element signature="e#2598#2599#0" expanded="true" />
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="38" selection-start="2903" selection-end="2903" vertical-scroll-proportion="0.0" vertical-offset="1338" max-vertical-offset="2363">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FireWallMainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="8" selection-start="851" selection-end="879" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="2040">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JournalFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="22" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JournalFrame.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
   </component>

@@ -52,7 +52,11 @@ public class FireWall implements Observable{
     @Override
     public void notifyObservers(int direction, int type, String body) {
         for (Observer o: observers) {
-            o.update(direction, type, body);
+            try {
+                o.update(direction, type, body);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

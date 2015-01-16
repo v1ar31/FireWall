@@ -17,7 +17,7 @@ public class DBAdapterSQLite extends DBAdapter {
     }
 
     @Override
-    protected int insert(String str) {
+    public int insert(String str) {
         synchronized (statement) {
             try {
                 statement.execute(str);
@@ -30,7 +30,7 @@ public class DBAdapterSQLite extends DBAdapter {
     }
 
     @Override
-    protected int delete(String str) {
+    public int delete(String str) {
         synchronized (statement) {
             try {
                 statement.execute(str);
@@ -43,7 +43,7 @@ public class DBAdapterSQLite extends DBAdapter {
     }
 
     @Override
-    protected ResultSet select(String str) {
+    public ResultSet select(String str) {
         ResultSet resSet = null;
         synchronized (statement) {
             try {
@@ -56,7 +56,7 @@ public class DBAdapterSQLite extends DBAdapter {
     }
 
     @Override
-    protected int update(String str) {
+    public int update(String str) {
         synchronized (statement) {
             try {
                 statement.execute(str);

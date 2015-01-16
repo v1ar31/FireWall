@@ -87,6 +87,13 @@ public class FireWallMainForm extends JFrame{
         trayIcon = new TrayIcon(icon, APPLICATION_NAME, trayMenu);
         trayIcon.setImageAutoSize(true);
 
+        trayIcon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.journalFrame.setVisible(true);
+            }
+        });
+
         SystemTray tray = SystemTray.getSystemTray();
         try {
             tray.add(trayIcon);

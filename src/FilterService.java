@@ -95,7 +95,7 @@ public class FilterService extends Thread {
         int indexName = 0;
         synchronized (Main.db.statement) {
             try {
-                resSet = Main.db.statement.executeQuery("SELECT COUNT(1) from ips where exists (select null from ips where ip in ('" + source + "', '" + dest + "'))");
+                resSet = Main.db.select("SELECT COUNT(1) from ips where exists (select null from ips where ip in ('" + source + "', '" + dest + "'))");
 
                 indexName = 0;
                 if (resSet.next()) {
@@ -114,7 +114,7 @@ public class FilterService extends Thread {
         int indexName = 0;
         synchronized (Main.db.statement) {
             try {
-                resSet = Main.db.statement.executeQuery("SELECT COUNT(1) from ports where exists (select null from ports where port in ('" + source + "', '" + dest + "'))");
+                resSet = Main.db.select("SELECT COUNT(1) from ports where exists (select null from ports where port in ('" + source + "', '" + dest + "'))");
 
                 indexName = 0;
                 if (resSet.next()) {

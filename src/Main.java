@@ -15,6 +15,7 @@ public class Main {
     public static FireWall fireWall;
     public static DBAdapterSQLite db;
 
+    public static JournalFrame journalFrame;
     public static void main(String[] args) {
 
         /**
@@ -27,7 +28,6 @@ public class Main {
         }
 
 
-
         try {
             db = new DBAdapterSQLite("jdbc:sqlite:resources/blockList.sqlite3");
         } catch (ClassNotFoundException | SQLException e) {
@@ -38,7 +38,16 @@ public class Main {
         fireWall = new FireWall();
         Notification notification = new Notification();
         fireWall.registerObserver(notification);
+        Journal journal = new Journal();
+        fireWall.registerObserver(journal);
 
+
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                journalFrame = new JournalFrame();
+            }
+        });
 
         /**
          * Tray icon
