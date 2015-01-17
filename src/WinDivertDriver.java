@@ -44,8 +44,6 @@ public class WinDivertDriver {
         return lib;
     }
 
-
-
     static public class Packet {
         final static int MAXBUF = 65528;
 
@@ -58,10 +56,9 @@ public class WinDivertDriver {
             packet_len = new IntByReference();
             addr = new WinDivertLibrary.WINDIVERT_ADDRESS();
         }
-
     }
 
-    public  Packet recvPkt() {
+    public Packet recvPkt() {
         Packet recv = new Packet();
         if (!lib.WinDivertRecv(handle, recv.packetBytes, recv.MAXBUF, recv.addr, recv.packet_len)) {
             System.out.println("warning: failed to read packet"

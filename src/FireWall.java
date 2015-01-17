@@ -3,7 +3,13 @@ import java.util.ArrayList;
 /**
  * Created by v1ar on 13.01.15.
  */
-public class FireWall implements Observable{
+
+// 1. Code style (mixing camelCase and other styles);
+// 2. FireWall can be singleton 
+// 3. -1 and 0 are not so good error reasons
+// 4. Observable can be abstract class
+
+public class FireWall implements Observable {
     final public static int PORT = 0x10;
     final public static int IP = 0x11;
 

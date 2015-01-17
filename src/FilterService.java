@@ -9,12 +9,14 @@ import java.sql.SQLException;
 public class FilterService extends Thread {
     public boolean isStarted = false;
 
-
     public WinDivertDriver windivdr;
 
     public FilterService(){
         windivdr = new WinDivertDriver();
     }
+
+		// 1. Packaga parsing for specific ip version can be in separate method
+		// 2. Main form is forbidden on this level
 
     public void run() {
         if (windivdr.openWinDivert() != 0) {
@@ -55,6 +57,7 @@ public class FilterService extends Thread {
                     }
 
                     // TCP, UDP
+										// ERROR: Hello magic numbers!
                     if (ipv4.Protocol == 0x11 || ipv4.Protocol == 0x06) {
 
                         if (blockPortListContains(Integer.toString(ipv4.SourcePort), Integer.toString(ipv4.DestinationPort))) {
