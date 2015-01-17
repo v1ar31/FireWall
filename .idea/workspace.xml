@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a6821ec-1f2a-4d7d-adb9-fe0127fbb871" name="Default" comment="Repair notification, added WinDivertDriver">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Journal.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JournalFrame.form" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JournalFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" afterPath="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FilterService.java" afterPath="$PROJECT_DIR$/src/FilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FireWall.java" afterPath="$PROJECT_DIR$/src/FireWall.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FireWallMainForm.java" afterPath="$PROJECT_DIR$/src/FireWallMainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+    <list default="true" id="8a6821ec-1f2a-4d7d-adb9-fe0127fbb871" name="Default" comment="Added Journal">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/TestNotification.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Header.java" afterPath="$PROJECT_DIR$/src/Header.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NotifierFrame.java" afterPath="$PROJECT_DIR$/src/NotifierFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\WORK\firewall\tests\HeaderTest.java" afterPath="$PROJECT_DIR$/tests/TestHeader.java" />
     </list>
     <ignored path="PostgreSQL_JDBC.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,44 +70,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <file leaf-file-name="TestHeader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/TestHeader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1224">
+            <state line="21" column="15" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Notification.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Notification.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="39" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="629">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestNotification.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/TestNotification.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.25888324" vertical-offset="0" max-vertical-offset="1037">
               <folding>
-                <element signature="e#1248#1393#0" expanded="true" />
-                <element signature="e#1382#1383#0" expanded="true" />
-                <element signature="e#1473#1614#0" expanded="true" />
-                <element signature="e#1603#1604#0" expanded="true" />
-                <element signature="e#1650#1834#0" expanded="true" />
-                <element signature="e#1823#1824#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FireWallMainForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FireWallMainForm.java">
+      <file leaf-file-name="Journal.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Journal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="8" selection-start="851" selection-end="879" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="2040">
+            <state line="14" column="60" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JournalFrame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JournalFrame.java">
+      <file leaf-file-name="FilterService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FilterService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="22" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="697">
+            <state line="56" column="31" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.0" vertical-offset="1438" max-vertical-offset="2278">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JournalFrame.form" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/JournalFrame.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -150,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/FireWallMain.java" />
         <option value="$PROJECT_DIR$/src/WinDivertLibrary.java" />
         <option value="$PROJECT_DIR$/FireWall.iml" />
-        <option value="$PROJECT_DIR$/src/Header.java" />
         <option value="$PROJECT_DIR$/src/firewall_mainform.form" />
         <option value="$PROJECT_DIR$/src/DBAdapter.java" />
         <option value="$PROJECT_DIR$/src/DBAdapterSQLite.java" />
@@ -167,7 +168,6 @@
         <option value="$PROJECT_DIR$/src/Observer.java" />
         <option value="$PROJECT_DIR$/src/Observable.java" />
         <option value="$PROJECT_DIR$/src/Notification.java" />
-        <option value="$PROJECT_DIR$/src/NotifierFrame.java" />
         <option value="$PROJECT_DIR$/src/sqldb/DBAdapterSQLite.java" />
         <option value="$PROJECT_DIR$/src/FilterService.java" />
         <option value="$PROJECT_DIR$/src/FireWall.java" />
@@ -176,6 +176,10 @@
         <option value="$PROJECT_DIR$/src/FireWallMainForm.java" />
         <option value="$PROJECT_DIR$/src/JournalFrame.java" />
         <option value="$PROJECT_DIR$/src/JournalFrame.form" />
+        <option value="$PROJECT_DIR$/src/Header.java" />
+        <option value="$PROJECT_DIR$/tests/TestHeader.java" />
+        <option value="$PROJECT_DIR$/src/NotifierFrame.java" />
+        <option value="$PROJECT_DIR$/tests/TestNotification.java" />
       </list>
     </option>
   </component>
@@ -279,74 +283,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JournalFrame" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="firewall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWallMainForm" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="firewall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="firewall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FireWall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="firewall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -391,7 +327,7 @@
       <recent name="D:\Documents\Технолог\ТиМ прог\firewall\PostgreSQL_JDBC\src\sqldb" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in FireWall">
     <configuration default="false" name="All in FireWall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="FireWall" />
@@ -722,7 +658,7 @@
       <workItem from="1421334058136" duration="11499000" />
       <workItem from="1421345875683" duration="219000" />
       <workItem from="1421346512205" duration="260000" />
-      <workItem from="1421346915359" duration="27231000" />
+      <workItem from="1421346915359" duration="33179000" />
     </task>
     <task id="LOCAL-00001" summary="deleted throw exceptions,  added for such functions returned val">
       <created>1421351106074</created>
@@ -736,11 +672,15 @@
       <created>1421421327612</created>
       <updated>1421421327612</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added Journal">
+      <created>1421424443559</created>
+      <updated>1421424443559</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276124000" />
+    <option name="totallyTimeSpent" value="282072000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -766,11 +706,11 @@
     <frame x="-4" y="-4" width="1374" height="750" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1852123" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1852123" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -786,7 +726,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14787701" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14787701" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3607306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -794,6 +734,35 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32267883" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24231333" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14787701" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3607306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1852123" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32267883" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39878234" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31659058" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USERS">
@@ -810,7 +779,8 @@
     <MESSAGE value="deleted throw exceptions,  added for such functions returned val" />
     <MESSAGE value="My first test, or how I will test it" />
     <MESSAGE value="Repair notification, added WinDivertDriver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repair notification, added WinDivertDriver" />
+    <MESSAGE value="Added Journal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Journal" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -821,20 +791,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="493">
-          <folding>
-            <element signature="e#1248#1393#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1473#1614#0" expanded="true" />
-            <element signature="e#1603#1604#0" expanded="true" />
-            <element signature="e#1650#1834#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sqldb/DBTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="99" column="50" selection-start="3008" selection-end="3008" vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="2142" />
@@ -1084,41 +1040,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Header.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2159">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/HeaderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="9" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="478" max-vertical-offset="1088">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sqldb/DBAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="25" selection-start="41" selection-end="41" vertical-scroll-proportion="0.09115282" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WinDivertLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="28" selection-start="1286" selection-end="1314" vertical-scroll-proportion="-3.6538463" vertical-offset="449" max-vertical-offset="5066">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="52" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
           <folding />
         </state>
       </provider>
@@ -1137,62 +1061,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WinDivertDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="57" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1496">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1018#1019#0" expanded="true" />
-            <element signature="e#1044#1045#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.0" vertical-offset="651" max-vertical-offset="2278">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FireWall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="36" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1156">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Notification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="226" selection-end="226" vertical-scroll-proportion="0.44208038" vertical-offset="0" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Journal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="60" selection-start="547" selection-end="547" vertical-scroll-proportion="0.56264776" vertical-offset="0" max-vertical-offset="459">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1224">
-          <folding>
-            <element signature="e#1248#1393#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1473#1614#0" expanded="true" />
-            <element signature="e#1603#1604#0" expanded="true" />
-            <element signature="e#1650#1834#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="38" selection-start="2903" selection-end="2903" vertical-scroll-proportion="0.0" vertical-offset="1338" max-vertical-offset="2363">
           <folding />
         </state>
       </provider>
@@ -1204,16 +1075,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/JournalFrame.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/JournalFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="22" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="697">
+        <state line="40" column="29" selection-start="1284" selection-end="1284" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="697">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JournalFrame.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="33" selection-start="1810" selection-end="1810" vertical-scroll-proportion="0.0" vertical-offset="593" max-vertical-offset="1224">
+          <folding>
+            <element signature="e#1248#1393#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1473#1614#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1650#1834#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="20" selection-start="3703" selection-end="3703" vertical-scroll-proportion="0.0" vertical-offset="1528" max-vertical-offset="2159">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WinDivertDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="20" selection-start="1795" selection-end="1795" vertical-scroll-proportion="0.0" vertical-offset="1068" max-vertical-offset="1462">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WinDivertLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="4" selection-start="2870" selection-end="2870" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="5066">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="52" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NotifierFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="21" selection-start="1774" selection-end="1774" vertical-scroll-proportion="0.0" vertical-offset="1314" max-vertical-offset="2431">
+          <folding>
+            <element signature="e#1295#1816#0" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="e#1869#2635#0" expanded="true" />
+            <element signature="e#2624#2625#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Notification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="39" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Journal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="60" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FilterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="31" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.0" vertical-offset="1438" max-vertical-offset="2278">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TestHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="15" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TestNotification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.25888324" vertical-offset="0" max-vertical-offset="1037">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

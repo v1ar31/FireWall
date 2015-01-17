@@ -51,8 +51,9 @@ public class NotifierFrame extends JDialog {
 
     public void slideIN() {
         new Thread () {
-            float hop = 3;
+            @Override
             public void run() {
+                float hop = 3;
                 while (hop > 1) {
                     hop -= 0.5;
                     setLocation((int) (scrSize.width - getWidth()/hop), scrSize.height - toolHeight.bottom - getHeight());

@@ -19,7 +19,7 @@ public class Header {
     }
     private Ws2_32 ws2_32 = Ws2_32.INSTANCE;   
     
-    private long concatBytes (byte ... bytes) {
+    public long concatBytes (byte ... bytes) {
         long res = 0;
         for (byte bt : bytes) {
             res <<= 8;
