@@ -16,6 +16,8 @@ public class FireWallMainForm extends JFrame{
     private JButton stop;
     FireWallBlockListForm form;
 
+    public SingleFireWall fireWall;
+
     public static TrayIcon trayIcon;
 
     public static final String APPLICATION_NAME = "Фаерволл";
@@ -24,6 +26,8 @@ public class FireWallMainForm extends JFrame{
 
     public FireWallMainForm() {
         super();
+        fireWall = SingleFireWall.getInstance();
+
         setResizable(false);
         setTitle("Фаерволл v0.1");
 
@@ -38,19 +42,22 @@ public class FireWallMainForm extends JFrame{
                 Main.dbform.setVisible(true);
             }
         });
+
+
+
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!Main.fireWall.isstarted) {
-                    Main.fireWall.StartFilter();
+                if (!fireWall.isStarted) {
+                    fireWall.startFilter();
                 }
             }
         });
         stop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Main.fireWall.isstarted) {
-                    Main.fireWall.StopFilter();
+                if (fireWall.isStarted) {
+                    fireWall.stopFilter();
                 }
             }
         });
@@ -114,8 +121,9 @@ public class FireWallMainForm extends JFrame{
         stopitem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Main.fireWall.isstarted) {
-                    Main.fireWall.StopFilter();
+                SingleFireWall fireWall1 = SingleFireWall.getInstance();
+                if (fireWall1.isStarted) {
+                    fireWall1.stopFilter();
 
                     trayIcon.displayMessage(APPLICATION_NAME, "Приложение остановлено",
                             TrayIcon.MessageType.INFO);
@@ -127,8 +135,9 @@ public class FireWallMainForm extends JFrame{
         startitem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!Main.fireWall.isstarted) {
-                    Main.fireWall.StartFilter();
+                SingleFireWall fireWall = SingleFireWall.getInstance();
+                if (!fireWall.isStarted) {
+                    fireWall.startFilter();
 
                     trayIcon.displayMessage(APPLICATION_NAME, "Приложение запущено",
                             TrayIcon.MessageType.INFO);

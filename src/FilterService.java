@@ -10,8 +10,10 @@ public class FilterService extends Thread {
     public boolean isStarted = false;
 
     public WinDivertDriver windivdr;
+    public SingleFireWall fireWall;
 
     public FilterService(){
+        fireWall = SingleFireWall.getInstance();
         windivdr = new WinDivertDriver();
     }
 
@@ -49,9 +51,9 @@ public class FilterService extends Thread {
                                 ipv4.Protocol, ipv4.SourceIPAddress,
                                 ipv4.DestinationIPAddress);*/
                         if (recpacket.addr.Direction == WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND) {
-                            Main.fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND, FireWall.IP, ipv4.DestinationIPAddress);
+                            fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND, SingleFireWall.IP, ipv4.DestinationIPAddress);
                         } else {
-                            Main.fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_INBOUND, FireWall.IP, ipv4.SourceIPAddress);
+                            fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_INBOUND, SingleFireWall.IP, ipv4.SourceIPAddress);
                         }
                         continue;
                     }
@@ -65,10 +67,10 @@ public class FilterService extends Thread {
                             //System.out.printf("srcprt = %d, dstprt = %d %n", ipv4.SourcePort, ipv4.DestinationPort);
 
                             if (recpacket.addr.Direction == WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND) {
-                                Main.fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND, FireWall.PORT,
+                                fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND, SingleFireWall.PORT,
                                         Integer.toString(ipv4.DestinationPort));
                             } else {
-                                Main.fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_INBOUND, FireWall.PORT,
+                                fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_INBOUND, SingleFireWall.PORT,
                                         Integer.toString(ipv4.SourcePort));
                             }
                             continue;

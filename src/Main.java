@@ -12,7 +12,7 @@ public class Main {
     public static FireWallMainForm form;
     public static FireWallBlockListForm dbform;
 
-    public static FireWall fireWall;
+    public static SingleFireWall fireWall;
     public static DBAdapterSQLite db;
 
     public static JournalFrame journalFrame;
@@ -34,11 +34,11 @@ public class Main {
             e.printStackTrace();
         }
 
-
-        fireWall = new FireWall();
-        Notification notification = new Notification();
-        fireWall.registerObserver(notification);
         Journal journal = new Journal();
+        Notification notification = new Notification();
+
+        fireWall = SingleFireWall.getInstance();
+        fireWall.registerObserver(notification);
         fireWall.registerObserver(journal);
 
 

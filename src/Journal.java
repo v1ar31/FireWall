@@ -5,7 +5,7 @@ public class Journal implements Observer {
 
     @Override
     public void update(int direction, int type, String body) {
-        if (type == FireWall.IP) {
+        if (type == SingleFireWall.IP) {
             Main.journalFrame.textArea1.append("Заблокирован IP: ");
         } else {
             Main.journalFrame.textArea1.append("Эаблокирован Порт: ");

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by v1ar on 13.01.15.
@@ -9,37 +10,41 @@ import java.util.ArrayList;
 // 3. -1 and 0 are not so good error reasons
 // 4. Observable can be abstract class
 
-public class FireWall implements Observable {
+public class SingleFireWall implements Observable {
     final public static int PORT = 0x10;
     final public static int IP = 0x11;
 
-    public ArrayList<Observer> observers;
+    private FilterService filterService;
+    public boolean isStarted;
 
-    public FilterService filterService;
+    private List<Observer> observers;
+    private static SingleFireWall instance;
 
-    public boolean isstarted;
+    public static SingleFireWall getInstance() {
+        return (instance == null)? new SingleFireWall() : instance;
+    }
 
 
-    public FireWall() {
-        isstarted = false;
+    private SingleFireWall() {
+        isStarted = false;
         observers = new ArrayList<>();
     }
 
 
-    public int StartFilter() {
-        if (!isstarted) {
+    public int startFilter() {
+        if (!isStarted) {
             filterService = new FilterService();
             filterService.start();
-            isstarted = true;
+            isStarted = true;
             return 0;
         }
         return -1;
     }
 
-    public int StopFilter() {
-        if (isstarted) {
+    public int stopFilter() {
+        if (isStarted) {
             filterService.interrupt();
-            isstarted = false;
+            isStarted = false;
             return 0;
         }
         return  -1;
