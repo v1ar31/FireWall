@@ -50,7 +50,7 @@ public class TestHeader {
     @Test
     public void testConstructorHeaderWithSalt() throws Exception {
         Header header1 = new Header(tst1);
-        assertNull(header1.struct_packet);
+        assertNull(header1.struct);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)

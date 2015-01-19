@@ -15,7 +15,7 @@ public class Notification implements Observer {
         if (!prevPkts.contains(body)) {
             String nameService = "";
             // тут нужно определить имя сервиса, которое в БД
-            if (type == FireWall.IP) {
+            if (type == SingleFireWall.IP) {
                 new NotifierFrame("Блокировка IP", nameService + "<br> " + body);
             } else {
                 new NotifierFrame("Блокировка Порта", nameService + "<br> " + body);
@@ -27,5 +27,10 @@ public class Notification implements Observer {
                 prevPkts.push(tmp);
             }
         }
+    }
+
+    @Override
+    public void registerIn(Observable o) {
+        o.registerObserver(this);
     }
 }

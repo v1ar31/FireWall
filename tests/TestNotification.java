@@ -29,24 +29,24 @@ public class TestNotification {
 
     @Test
     public void testUpdateWithDublicatePacket() throws Exception {
-        notification.update(0,FireWall.IP, "127.0.0.1");
-        notification.update(0,FireWall.IP, "127.0.0.1");
+        notification.update(0,SingleFireWall.IP, "127.0.0.1");
+        notification.update(0,SingleFireWall.IP, "127.0.0.1");
 
         assertEquals(notification.prevPkts.size(), 1);
     }
 
     @Test
     public void testUpdateWithEqualPacket() throws Exception {
-        notification.update(0,FireWall.IP, "127");
-        notification.update(0,FireWall.PORT, "127");
+        notification.update(0,SingleFireWall.IP, "127");
+        notification.update(0,SingleFireWall.PORT, "127");
 
         assertEquals(notification.prevPkts.size(), 1);
     }
 
     @Test
     public void testUpdateWithUnEqualPacket() throws Exception {
-        notification.update(0,FireWall.IP, "127.1.1.1");
-        notification.update(0,FireWall.PORT, "228");
+        notification.update(0,SingleFireWall.IP, "127.1.1.1");
+        notification.update(0,SingleFireWall.PORT, "228");
 
         assertEquals(notification.prevPkts.size(), 2);
     }

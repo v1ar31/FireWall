@@ -34,18 +34,15 @@ public class Main {
             e.printStackTrace();
         }
 
-        Journal journal = new Journal();
-        Notification notification = new Notification();
-
         fireWall = SingleFireWall.getInstance();
-        fireWall.registerObserver(notification);
-        fireWall.registerObserver(journal);
-
+        Notification notification = new Notification();
+        notification.registerIn(fireWall);
 
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 journalFrame = new JournalFrame();
+                journalFrame.registerIn(fireWall);
             }
         });
 

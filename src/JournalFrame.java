@@ -1,9 +1,8 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class JournalFrame extends JDialog {
+public class JournalFrame extends JDialog implements Observer{
     private JPanel contentPane;
-    private JButton buttonOK;
     private JButton buttonCancel;
     public JTextArea textArea1;
 
@@ -39,8 +38,30 @@ public class JournalFrame extends JDialog {
     }
 
     private void onCancel() {
-        // add your code here if necessary
         setVisible(false);
+    }
+
+    @Override
+    public void update(int direction, int type, String body) {
+        if (type == SingleFireWall.IP) {
+            textArea1.append("Заблокирован IP: ");
+        } else {
+            textArea1.append("Эаблокирован Порт: ");
+        }
+        textArea1.append(body);
+        if (direction == WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND) {
+            textArea1.append(" - >> OUT");
+        } else {
+            textArea1.append(" << - IN");
+        }
+        textArea1.append("\n");
+    }
+
+    @Override
+    public void registerIn(Observable o) {
+        synchronized (o) {
+            o.registerObserver(this);
+        }
     }
 
 }
