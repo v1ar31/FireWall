@@ -1,7 +1,8 @@
-package sqldb;
+import sqldb.DBAdapter;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.sql.SQLException;
 
 public class NetInformer extends Thread {
  
@@ -32,6 +33,8 @@ public class NetInformer extends Thread {
             }
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="sqldb.FireWallBlockListForm">
-  <grid id="27dc6" binding="FamePanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="FireWallBlockListForm">
+  <grid id="27dc6" binding="famePanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="729" height="294"/>
@@ -29,7 +29,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="1c3e" binding="names" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="1c3e" binding="namesPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Имя группы черного списка"/>
@@ -39,14 +39,14 @@
             </properties>
             <border type="none"/>
             <children>
-              <scrollpane id="12a33" binding="scrollpane_names">
+              <scrollpane id="12a33" binding="namesScrollPane">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="1776f" class="javax.swing.JTable" binding="table_names">
+                  <component id="1776f" class="javax.swing.JTable" binding="namesTable">
                     <constraints/>
                     <properties/>
                   </component>
@@ -54,22 +54,22 @@
               </scrollpane>
             </children>
           </grid>
-          <grid id="cd36c" binding="ips" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="cd36c" binding="listPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <tabbedpane title="запрещенные ip-адреса"/>
+              <tabbedpane title="Запрещенные ip-адреса и порты"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <scrollpane id="adbe6" binding="scrollpane_ips">
+              <scrollpane id="adbe6" binding="listScrollPane">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="b86cd" class="javax.swing.JTable" binding="table_ips">
+                  <component id="b86cd" class="javax.swing.JTable" binding="listTable">
                     <constraints/>
                     <properties/>
                   </component>
@@ -77,38 +77,15 @@
               </scrollpane>
             </children>
           </grid>
-          <grid id="c09ca" binding="ports" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="c1642" binding="sqlPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <tabbedpane title="запрещенные порты"/>
+              <tabbedpane title="Запрос sql"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <scrollpane id="4d78d" binding="scrollpane_ports">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-                <border type="none"/>
-                <children>
-                  <component id="22ad4" class="javax.swing.JTable" binding="table_ports">
-                    <constraints/>
-                    <properties/>
-                  </component>
-                </children>
-              </scrollpane>
-            </children>
-          </grid>
-          <grid id="c1642" binding="SQL" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
-            <constraints>
-              <tabbedpane title="запрос sql"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="30d80" class="javax.swing.JTextArea" binding="textArea_sqlqury">
+              <component id="30d80" class="javax.swing.JTextArea" binding="sqlQueryTextArea">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
@@ -122,22 +99,22 @@
               </component>
             </children>
           </grid>
-          <grid id="d93d" binding="query" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="d93d" binding="queryPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <tabbedpane title="ответ sql"/>
+              <tabbedpane title="Ответ sql"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <scrollpane id="73c6f" binding="scrollpane_sqlpane">
+              <scrollpane id="73c6f" binding="sqlQueryScrollPane">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="accc5" class="javax.swing.JTable" binding="table_sqlquery">
+                  <component id="accc5" class="javax.swing.JTable" binding="sqlQueryTable">
                     <constraints/>
                     <properties/>
                   </component>
@@ -147,7 +124,7 @@
           </grid>
         </children>
       </tabbedpane>
-      <grid id="2cd1d" binding="DownPane" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="2cd1d" binding="downPanel" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="true"/>
@@ -155,7 +132,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="d8440" class="javax.swing.JButton" binding="button_add_null">
+          <component id="d8440" class="javax.swing.JButton" binding="addNullBtn">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -164,7 +141,7 @@
               <text value="Пустая строка"/>
             </properties>
           </component>
-          <component id="4cb81" class="javax.swing.JButton" binding="button_update">
+          <component id="4cb81" class="javax.swing.JButton" binding="updateBtn">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -172,7 +149,7 @@
               <text value="Обновить строку"/>
             </properties>
           </component>
-          <component id="aad6" class="javax.swing.JButton" binding="button_delete">
+          <component id="aad6" class="javax.swing.JButton" binding="deleteBtn">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -180,7 +157,7 @@
               <text value="Удалить строку"/>
             </properties>
           </component>
-          <component id="c8656" class="javax.swing.JButton" binding="button_refresh">
+          <component id="c8656" class="javax.swing.JButton" binding="refreshBtn">
             <constraints>
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -188,7 +165,7 @@
               <text value="Обновить"/>
             </properties>
           </component>
-          <component id="ac1b6" class="javax.swing.JButton" binding="button_addtodb">
+          <component id="ac1b6" class="javax.swing.JButton" binding="add2dbBtn">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -196,7 +173,7 @@
               <text value="Добавить строку"/>
             </properties>
           </component>
-          <component id="3e971" class="javax.swing.JButton" binding="button_sqlquery">
+          <component id="3e971" class="javax.swing.JButton" binding="sqlQueryBtn">
             <constraints>
               <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -214,7 +191,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="68b37" class="javax.swing.JTextField" binding="netAddress">
+          <component id="68b37" class="javax.swing.JTextField" binding="netAddressTextField">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -224,7 +201,7 @@
               <horizontalAlignment value="2"/>
             </properties>
           </component>
-          <component id="9c8e9" class="javax.swing.JButton" binding="AddBlock">
+          <component id="9c8e9" class="javax.swing.JButton" binding="addBlockBtn">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -233,7 +210,7 @@
               <text value="Добавить адрес сайта в черный список"/>
             </properties>
           </component>
-          <component id="69d59" class="javax.swing.JButton" binding="DelBlock">
+          <component id="69d59" class="javax.swing.JButton" binding="deleteBlockBtn">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>

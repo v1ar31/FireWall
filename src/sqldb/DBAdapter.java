@@ -1,6 +1,9 @@
 package sqldb;
 
+import javafx.util.Pair;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class DBAdapter {
@@ -10,6 +13,7 @@ public class DBAdapter {
 
     protected Connection connection;
     protected final Statement statement;
+
 
     public static DBAdapter getInstance() throws SQLException, ClassNotFoundException {
         if (instance == null) {
@@ -51,6 +55,12 @@ public class DBAdapter {
     public void update(String str) throws SQLException {
         synchronized (statement) {
             statement.execute(str);
+        }
+    }
+
+    public void xupdate(String nameTable, ArrayList<Pair<String, String>> set, String id) throws SQLException {
+        synchronized (connection) {
+
         }
     }
 }

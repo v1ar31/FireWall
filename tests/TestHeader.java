@@ -1,6 +1,7 @@
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import windivert.Header;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -50,7 +51,7 @@ public class TestHeader {
     @Test
     public void testConstructorHeaderWithSalt() throws Exception {
         Header header1 = new Header(tst1);
-        assertNull(header1.struct);
+        assertNull(header1.networkProtocol);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)
