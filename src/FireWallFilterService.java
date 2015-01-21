@@ -1,60 +1,66 @@
-import java.sql.ResultSet;
+import sqldb.DBAdapter;
+import windivert.FilterService;
+import windivert.HeaderIPv4;
+import windivert.HeaderIPv6;
+
 import java.sql.SQLException;
 
-/**
- * Created by v1ar on 20.01.15.
- */
-public class FireWallFilterService extends FilterService {
 
-    public SingleFireWall fireWall;
+public class FireWallFilterService extends FilterService {
+    public static final int DIRECTION_OUTBOUND = 0;
+    public static final int DIRECTION_INBOUND = 1;
+    public static final int TCP = 0x11;
+    public static final int UDP = 0x06;
+
+    private SingleFireWall fireWall;
+    private DBAdapter dbAdapter;
 
     public FireWallFilterService() {
         super();
         fireWall = SingleFireWall.getInstance();
+        try {
+            dbAdapter = DBAdapter.getInstance();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public boolean filteredIPv4Header(WinDivertDriver.Packet ipv4Packet) {
-        Header header = new Header(ipv4Packet.packetBytes);
-        HeaderIPv4 ipv4Header = (HeaderIPv4)header.struct;
+    public boolean filteredIPv4Header(HeaderIPv4 ipv4Header, int direction) {
+        String Address = null;
+        String Port = null;
 
-        if (blockIPListContains(ipv4Header.SourceIPAddress, ipv4Header.DestinationIPAddress)) {
+        Address = (direction == DIRECTION_OUTBOUND)? ipv4Header.destinationIPAddress
+                                                   : ipv4Header.sourceIPAddress;
 
-            if (ipv4Packet.addr.Direction == WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND) {
-                fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND, SingleFireWall.IP, ipv4Header.DestinationIPAddress);
-            } else {
-                fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_INBOUND, SingleFireWall.IP, ipv4Header.SourceIPAddress);
-            }
 
-            return true;
+        if ((ipv4Header.protocol == UDP) || (ipv4Header.protocol == TCP)) {
+            int tmpPort = (direction == DIRECTION_OUTBOUND)? ipv4Header.destinationPort
+                                                           : ipv4Header.sourcePort;
+            Port = Integer.toString(tmpPort);
         }
 
-        // TCP, UDP
-        // ERROR: Hello magic numbers!
-        if (ipv4Header.Protocol == 0x11 || ipv4Header.Protocol == 0x06) {
+        if (blockListContains(Address, null)
+                || ((Port != null) && (blockListContains(null, Port) || blockListContains(Address, Port))) ) {
 
-            if (blockPortListContains(Integer.toString(ipv4Header.SourcePort), Integer.toString(ipv4Header.DestinationPort))) {
+            fireWall.notifyObservers(direction, Address, Port);
 
-                if (ipv4Packet.addr.Direction == WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND) {
-                    fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_OUTBOUND, SingleFireWall.PORT,
-                            Integer.toString(ipv4Header.DestinationPort));
-                } else {
-                    fireWall.notifyObservers(WinDivertLibrary.WINDIVERT_DIRECTION_INBOUND, SingleFireWall.PORT,
-                            Integer.toString(ipv4Header.SourcePort));
-                }
-            }
             return true;
         }
         return false;
     }
 
     @Override
-    public boolean filteredIPv6Header(WinDivertDriver.Packet ipv6Packet) {
+    public boolean filteredIPv6Header(HeaderIPv6 ipv6Header, int direction) {
         // pass
         return false;
     }
 
+    public boolean blockListContains(String Address, String Port) {
+        return true;
+    }
 
+/*
     public boolean blockIPListContains (String source, String dest)  {
         ResultSet resSet;
         int indexName = 0;
@@ -90,5 +96,5 @@ public class FireWallFilterService extends FilterService {
             }
         }
         return indexName > 0;
-    }
+    }*/
 }

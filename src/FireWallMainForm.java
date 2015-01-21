@@ -1,129 +1,146 @@
-import sqldb.FireWallBlockListForm;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
-/**
- * Created by v1ar on 13.01.15.
- */
+
 public class FireWallMainForm extends JFrame{
-    private JButton blackList;
-    private JPanel MainPanel;
-    private JButton start;
-    private JButton stop;
-    FireWallBlockListForm form;
+    private final String APPLICATION_NAME = "Фаерволл";
+    private final String FW_WORK = "/images/work.png";
+    private final String FW_STAY = "/images/stay.png";
+    private final URL imageStay = FireWallMainForm.class.getResource(FW_STAY);
+    private final URL imageWork = FireWallMainForm.class.getResource(FW_WORK);
 
-    public SingleFireWall fireWall;
+    private JPanel mainPanel;
+    private JButton blackListBtn;
+    private JButton startBtn;
+    private JButton stopBtn;
+    private TrayIcon trayIcon;
 
-    public static TrayIcon trayIcon;
+    private PopupMenu trayMenu;
+    private MenuItem blockListItem;
+    private MenuItem startItem;
+    private MenuItem stopItem;
+    private MenuItem closeItem;
 
-    public static final String APPLICATION_NAME = "Фаерволл";
-    public static final String FW_WORK = "/images/work.png";
-    public static final String FW_STAY = "/images/stay.png";
+    private SingleFireWall fireWall;
+
+    public FireWallBlockListForm dbFrame;
+    public JournalFrame journalFrame;
+
 
     public FireWallMainForm() {
         super();
         fireWall = SingleFireWall.getInstance();
 
-        setResizable(false);
-        setTitle("Фаерволл v0.1");
+        try {
+            constructTrayIcon();
+        } catch (AWTException e) {
+            constructMainForm();
+            setVisible(true);
+        }
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setContentPane(MainPanel);
-        pack();
-        setLocationRelativeTo(null);
-
-        blackList.addActionListener(new ActionListener() {
+        EventQueue.invokeLater(new Runnable() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                Main.dbform.setVisible(true);
+            public void run() {
+                journalFrame = new JournalFrame();
+                journalFrame.registerIn(fireWall);
             }
         });
 
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                dbFrame = new FireWallBlockListForm();
+                dbFrame.display();
+            }
+        });
+    }
 
+    private void constructMainForm() {
+        setResizable(false);
+        setTitle(APPLICATION_NAME);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setContentPane(mainPanel);
+        pack();
+        setLocationRelativeTo(null);
 
-        start.addActionListener(new ActionListener() {
+        addActionsOnMainForm();
+    }
+
+    private void addActionsOnMainForm() {
+        blackListBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fireWall.isStarted) {
+                dbFrame.setVisible(true);
+            }
+        });
+        startBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!fireWall.isStarted()) {
                     fireWall.startFilter();
                 }
             }
         });
-        stop.addActionListener(new ActionListener() {
+        stopBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (fireWall.isStarted) {
+                if (fireWall.isStarted()) {
                     fireWall.stopFilter();
                 }
             }
         });
-
-        if (setTrayIcon() != 0) {
-            setVisible(true);
-        }
     }
 
-    public static int setTrayIcon() {
-        if(! SystemTray.isSupported() ) {
-            return 1;
+    public void constructTrayIcon() throws AWTException {
+        if (!SystemTray.isSupported()) {
+            throw new AWTException("SystemTray is not supported");
         }
 
-        PopupMenu trayMenu = new PopupMenu();
+        blockListItem = new MenuItem("Черный список");
+        startItem = new MenuItem("Старт");
+        stopItem = new MenuItem("Стоп");
+        closeItem = new MenuItem("Закрыть");
 
-        MenuItem blitem = new MenuItem("Черный список");
-        trayMenu.add(blitem);
-
-        MenuItem startitem = new MenuItem("Старт");
-        trayMenu.add(startitem);
-
-        MenuItem stopitem = new MenuItem("Стоп");
-        trayMenu.add(stopitem);
-
-        MenuItem item = new MenuItem("Закрыть");
-        trayMenu.add(item);
-
-
-        final URL imageStay = Main.class.getResource(FW_STAY);
-        final URL imageWork = Main.class.getResource(FW_WORK);
+        trayMenu = new PopupMenu();
+        trayMenu.add(blockListItem);
+        trayMenu.add(startItem);
+        trayMenu.add(stopItem);
+        trayMenu.add(closeItem);
 
         Image icon = Toolkit.getDefaultToolkit().getImage(imageStay);
         trayIcon = new TrayIcon(icon, APPLICATION_NAME, trayMenu);
         trayIcon.setImageAutoSize(true);
 
-        trayIcon.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Main.journalFrame.setVisible(true);
-            }
-        });
-
         SystemTray tray = SystemTray.getSystemTray();
-        try {
-            tray.add(trayIcon);
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
+        tray.add(trayIcon);
 
         trayIcon.displayMessage(APPLICATION_NAME, "Приложение готово к работе",
                 TrayIcon.MessageType.INFO);
 
-        item.addActionListener(new ActionListener() {
+        addActionsOnTrayIcon();
+    }
+
+    private void addActionsOnTrayIcon() {
+        trayIcon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                journalFrame.setVisible(true);
+            }
+        });
+        closeItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-
-        stopitem.addActionListener(new ActionListener() {
+        stopItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SingleFireWall fireWall1 = SingleFireWall.getInstance();
-                if (fireWall1.isStarted) {
-                    fireWall1.stopFilter();
+                if (fireWall.isStarted()) {
+                    fireWall.stopFilter();
 
                     trayIcon.displayMessage(APPLICATION_NAME, "Приложение остановлено",
                             TrayIcon.MessageType.INFO);
@@ -131,12 +148,10 @@ public class FireWallMainForm extends JFrame{
                 }
             }
         });
-
-        startitem.addActionListener(new ActionListener() {
+        startItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SingleFireWall fireWall = SingleFireWall.getInstance();
-                if (!fireWall.isStarted) {
+                if (!fireWall.isStarted()) {
                     fireWall.startFilter();
 
                     trayIcon.displayMessage(APPLICATION_NAME, "Приложение запущено",
@@ -145,17 +160,12 @@ public class FireWallMainForm extends JFrame{
                 }
             }
         });
-
-        blitem.addActionListener(new ActionListener() {
+        blockListItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.dbform.setVisible(true);
+                dbFrame.setVisible(true);
             }
         });
-
-
-
-        return 0;
     }
 
 }

@@ -1,20 +1,16 @@
+import windivert.FilterService;
+
 import java.util.ArrayList;
 
-/**
- * Created by v1ar on 13.01.15.
- */
 
-// 1. Code style (mixing camelCase and other styles);
+// 1. Code style (mixing camelCase and other styles); { FIX }
 // 2. FireWall can be singleton { FIX }
 // 3. -1 and 0 are not so good error reasons
 // 4. Observable can be abstract class () { FIX }
 
 public class SingleFireWall extends Observable {
-    final public static int PORT = 0x10;
-    final public static int IP = 0x11;
-
     private FilterService filterService;
-    public boolean isStarted;
+    private boolean isStarted;
 
     private static volatile SingleFireWall instance; // volatile - for multi threads
 
@@ -34,44 +30,47 @@ public class SingleFireWall extends Observable {
         observers = new ArrayList<>();
     }
 
+    public boolean isStarted() {
+        return isStarted;
+    }
 
-    public int startFilter() {
-        if (!isStarted) {
+    public void setStarted(boolean isStarted) {
+        this.isStarted = isStarted;
+    }
+
+    public int startFilter() {                                          // -->> add throws
+        if (!isStarted()) {
             filterService = new FireWallFilterService();
             filterService.start();
-            isStarted = true;
+            setStarted(true);
             return 0;
         }
         return -1;
     }
 
-    public int stopFilter() {
-        if (isStarted) {
+    public int stopFilter() {                                           // -->> add throws
+        if (isStarted()) {
             filterService.interrupt();
-            isStarted = false;
+            setStarted(false);
             return 0;
         }
         return  -1;
     }
 
     @Override
-    public void registerObserver(Observer o) {
+    public void registerObserver(Observer o) throws NullPointerException {
         observers.add(o);
     }
 
     @Override
-    public void removeObserver(Observer o) {
+    public void removeObserver(Observer o) throws NullPointerException {
         observers.remove(o);
     }
 
     @Override
-    public void notifyObservers(int direction, int type, String body) {
+    public void notifyObservers(int direction, String address, String port) throws NullPointerException{
         for (Observer o: observers) {
-            try {
-                o.update(direction, type, body);
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-            }
+            o.update(direction, address, port);
         }
     }
 

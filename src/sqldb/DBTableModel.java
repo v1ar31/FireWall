@@ -18,7 +18,7 @@ public class DBTableModel extends AbstractTableModel {
     // здесь мы будем хранить названия столбцов
     public ArrayList<String> columnNames;
     // список типов столбцов
-    public ArrayList columnTypes;
+    public ArrayList<Class<?>> columnTypes;
     // хранилище для полученных данных из базы данных
     public ArrayList data;
     public ArrayList<String> ids;
@@ -30,7 +30,7 @@ public class DBTableModel extends AbstractTableModel {
     // конструктор позволяет задать возможность редактирования
     public DBTableModel() {
         columnNames = new ArrayList<String>();
-        columnTypes = new ArrayList();
+        columnTypes = new ArrayList<Class<?>>();
         data = new ArrayList();
         ids = new ArrayList<String>();
         hashMaps = new ArrayList<HashMap<String, String>>();
@@ -39,7 +39,7 @@ public class DBTableModel extends AbstractTableModel {
     }
 
     public void addData () {
-        ArrayList<Object> row = new ArrayList();
+        ArrayList<Object> row = new ArrayList<Object>();
         for ( int i = 0; i < getColumnCount(); i++) {
             row.add( "" );
         }
@@ -130,7 +130,7 @@ public class DBTableModel extends AbstractTableModel {
     public void setHashes(DBAdapter db) throws IOException, SQLException {
         // создание списка хештаблиц [name, id]
         for (String name: columnNames) {
-            if (name.indexOf("id") != -1 && name.compareTo("id") != 0) { // имя колонки содержит id
+            if (name.contains("id") && name.compareTo("id") != 0) { // имя колонки содержит id
                 nameWithID.add(name.replaceAll("id", ""));
                 hashMaps.add(new HashMap<String, String>(){{
                     put("  ","null");
@@ -167,11 +167,11 @@ public class DBTableModel extends AbstractTableModel {
         fireTableStructureChanged(); // сообщаем об изменениях в структуре данных
         while ( rs.next() ) { // получаем данные
             // здесь будем хранить ячейки одной строки
-            ArrayList<String> row = new ArrayList();
+            ArrayList<String> row = new ArrayList<String>();
             ids.add(String.valueOf(rs.getInt(1))); // id для всех полей
             System.out.println();
             for ( int i = 0; i < columnNames.size(); i++) {
-                if ( columnNames.get(i).indexOf("id") != -1) {
+                if (columnNames.get(i).contains("id")) {
                     try {
                         HashMap<String, String> hm = hashMaps.get(nameWithID.indexOf( columnNames.get(i).replaceAll("id", "") ));
                         row.add( hashMapGetKey(hm, rs.getString(i+2).trim()) );

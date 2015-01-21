@@ -1,21 +1,15 @@
-import sqldb.DBAdapterSQLite;
-import sqldb.FireWallBlockListForm;
-
 import javax.swing.*;
 import java.awt.*;
-import java.sql.SQLException;
 
 /**
  * Created by v1ar on 30.10.14.
  */
 public class Main {
-    public static FireWallMainForm form;
-    public static FireWallBlockListForm dbform;
+    public static FireWallMainForm mainForm;
 
     public static SingleFireWall fireWall;
-    public static DBAdapterSQLite db;
 
-    public static JournalFrame journalFrame;
+
     public static void main(String[] args) {
 
         /**
@@ -27,24 +21,9 @@ public class Main {
             e1.printStackTrace();
         }
 
-
-        try {
-            db = new DBAdapterSQLite("jdbc:sqlite:resources/blockList.sqlite3");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-
         fireWall = SingleFireWall.getInstance();
         Notification notification = new Notification();
         notification.registerIn(fireWall);
-
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                journalFrame = new JournalFrame();
-                journalFrame.registerIn(fireWall);
-            }
-        });
 
         /**
          * Tray icon
@@ -52,18 +31,12 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                form = new FireWallMainForm();
+                mainForm = new FireWallMainForm();
             }
         });
 
 
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                dbform = new FireWallBlockListForm(db);
-                dbform.display();
-            }
-        });
+
     }
 
 }
