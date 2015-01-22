@@ -6,9 +6,6 @@ import windivert.Header;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-/**
- * Created by v1ar on 16.01.15.
- */
 public class TestHeader {
     static Header header;
     static byte[] tst1;

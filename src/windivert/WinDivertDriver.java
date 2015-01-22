@@ -7,7 +7,7 @@ import static com.sun.jna.platform.win32.WinBase.INVALID_HANDLE_VALUE;
 
 public class WinDivertDriver {
     private WinDivertLibrary lib;
-    private WinNT.HANDLE handle;
+    public WinNT.HANDLE handle;
 
     public WinDivertDriver() {
         lib = WinDivertLibrary.INSTANCE;
@@ -41,7 +41,7 @@ public class WinDivertDriver {
 
     public void sendPacket(Packet send) throws WinDivertException {
         if (!lib.WinDivertSend(handle, send.packetBytes, send.packetLen.getValue(), send.addr, 0)) {
-            throw new WinDivertException("failed to send packet in WinDiverDriver");
+            throw new WinDivertException("failed to reinject packet");
         }
     }
 
