@@ -79,16 +79,20 @@ public class FireWallMainForm extends JFrame{
         startBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fireWall.isStarted()) {
+                try {
                     fireWall.startFilter();
+                } catch (FireWallException e1) {
+                    // it is already started
                 }
             }
         });
         stopBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (fireWall.isStarted()) {
+                try {
                     fireWall.stopFilter();
+                } catch (FireWallException e1) {
+                    // it is not started
                 }
             }
         });
@@ -139,25 +143,29 @@ public class FireWallMainForm extends JFrame{
         stopItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (fireWall.isStarted()) {
+                try {
                     fireWall.stopFilter();
-
                     trayIcon.displayMessage(APPLICATION_NAME, "Приложение остановлено",
                             TrayIcon.MessageType.INFO);
                     trayIcon.setImage(Toolkit.getDefaultToolkit().getImage(imageStay));
+                } catch (FireWallException ex) {
+                    trayIcon.displayMessage(APPLICATION_NAME, "Приложение не запущено",
+                            TrayIcon.MessageType.INFO);
                 }
             }
         });
         startItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!fireWall.isStarted()) {
+                 try {
                     fireWall.startFilter();
-
                     trayIcon.displayMessage(APPLICATION_NAME, "Приложение запущено",
                             TrayIcon.MessageType.INFO);
                     trayIcon.setImage(Toolkit.getDefaultToolkit().getImage(imageWork));
-                }
+                 } catch (FireWallException ex) {
+                     trayIcon.displayMessage(APPLICATION_NAME, "Приложение уже запущено",
+                             TrayIcon.MessageType.INFO);
+                 }
             }
         });
         blockListItem.addActionListener(new ActionListener() {

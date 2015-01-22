@@ -5,9 +5,7 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicReference;
 
-/**
- * Created by v1ar on 15.01.15.
- */
+
 public class NotifierFrame extends JDialog {
     final public String FW_IMAGE = "/images/firewall.jpg";
 

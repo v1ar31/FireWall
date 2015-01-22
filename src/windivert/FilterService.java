@@ -1,8 +1,5 @@
 package windivert;
 
-import com.sun.jna.Native;
-
-
 public abstract class FilterService extends Thread {
     final private int IPV4 = 4;
     final private int IPV6 = 6;
@@ -19,46 +16,43 @@ public abstract class FilterService extends Thread {
 		// 2. Main form is forbidden on this level       { FIX }
 
     public void run() {
-        if (divertDriver.openWinDivert() != 0) {                                                    // try - catch
-            isStarted = false;
-            System.out.println("Error in run FilterServece ");
-        } else {
+        try {
+            divertDriver.openWinDivert();
             isStarted = true;
+        } catch (WinDivertException e) {
+            e.printStackTrace();
+            isStarted = false;
         }
 
-        while (isStarted) {
-            if(!interrupted()) {
-
-                Packet packet = divertDriver.receivePacket();                                       // try - catch
-                if (packet == null) {
-                    System.out.println("warning: failed to read packet"
-                            + Integer.toHexString(Native.getLastError()));
-                    continue;
-                }
+        while (isStarted && !interrupted()) {
+            try {
+                Packet packet = divertDriver.receivePacket();
 
                 Header header = new Header(packet.packetBytes);
                 if (header.getVersionProtocol() == IPV4) {
                     if (filteredIPv4Header((HeaderIPv4) header.getNetworkProtocol(), packet.addr.Direction)) {
-                        continue;
+                        continue; //
                     }
                 }
 
-                if (header.getVersionProtocol() == IPV6){
+                if (header.getVersionProtocol() == IPV6) {
                    if (filteredIPv6Header((HeaderIPv6) header.getNetworkProtocol(), packet.addr.Direction)) {
                        continue;
                    }
                 }
 
-                if (divertDriver.sendPacket(packet) != 0) {
-                    System.out.println("warning: failed to send packet"
-                            + Integer.toHexString(Native.getLastError()));
-                }
-
-            } else {                                                                              // try - catch
-                divertDriver.closeWinDivert();
-                isStarted = false;
+                divertDriver.sendPacket(packet);
+            } catch (WinDivertException e) {
+                e.printStackTrace();
             }
         }
+
+        try {
+            divertDriver.closeWinDivert();
+        } catch (WinDivertException e) {
+            e.printStackTrace();
+        }
+        isStarted = false;
 
     }
 

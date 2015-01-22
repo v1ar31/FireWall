@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 // 1. Code style (mixing camelCase and other styles); { FIX }
 // 2. FireWall can be singleton { FIX }
-// 3. -1 and 0 are not so good error reasons
+// 3. -1 and 0 are not so good error reasons { FIX }
 // 4. Observable can be abstract class () { FIX }
 
 public class SingleFireWall extends Observable {
@@ -38,23 +38,21 @@ public class SingleFireWall extends Observable {
         this.isStarted = isStarted;
     }
 
-    public int startFilter() {                                          // -->> add throws
-        if (!isStarted()) {
-            filterService = new FireWallFilterService();
-            filterService.start();
-            setStarted(true);
-            return 0;
+    public void startFilter() throws FireWallException {
+        if (isStarted()) {
+            throw new FireWallException("it is already launched");
         }
-        return -1;
+        filterService = new FireWallFilterService();
+        filterService.start();
+        setStarted(true);
     }
 
-    public int stopFilter() {                                           // -->> add throws
-        if (isStarted()) {
-            filterService.interrupt();
-            setStarted(false);
-            return 0;
+    public void stopFilter() throws FireWallException {
+        if (!isStarted()) {
+            throw new FireWallException("it is not launched");
         }
-        return  -1;
+        filterService.interrupt();
+        setStarted(false);
     }
 
     @Override
@@ -68,7 +66,7 @@ public class SingleFireWall extends Observable {
     }
 
     @Override
-    public void notifyObservers(int direction, String address, String port) throws NullPointerException{
+    public void notifyObservers(int direction, String address, String port) throws NotificationException {
         for (Observer o: observers) {
             o.update(direction, address, port);
         }

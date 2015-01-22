@@ -1,9 +1,13 @@
+import javafx.util.Pair;
 import sqldb.DBAdapter;
 import windivert.FilterService;
 import windivert.HeaderIPv4;
 import windivert.HeaderIPv6;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class FireWallFilterService extends FilterService {
@@ -27,10 +31,10 @@ public class FireWallFilterService extends FilterService {
 
     @Override
     public boolean filteredIPv4Header(HeaderIPv4 ipv4Header, int direction) {
-        String Address = null;
+        String address = null;
         String Port = null;
 
-        Address = (direction == DIRECTION_OUTBOUND)? ipv4Header.destinationIPAddress
+        address = (direction == DIRECTION_OUTBOUND)? ipv4Header.destinationIPAddress
                                                    : ipv4Header.sourceIPAddress;
 
 
@@ -40,10 +44,14 @@ public class FireWallFilterService extends FilterService {
             Port = Integer.toString(tmpPort);
         }
 
-        if (blockListContains(Address, null)
-                || ((Port != null) && (blockListContains(null, Port) || blockListContains(Address, Port))) ) {
+        if (blockListContains(address, null)
+                || ((Port != null) && (blockListContains(null, Port) || blockListContains(address, Port) ))) {
 
-            fireWall.notifyObservers(direction, Address, Port);
+            try {
+                fireWall.notifyObservers(direction, address, Port);
+            } catch (NotificationException e) {
+                e.printStackTrace();
+            }
 
             return true;
         }
@@ -56,45 +64,27 @@ public class FireWallFilterService extends FilterService {
         return false;
     }
 
-    public boolean blockListContains(String Address, String Port) {
-        return true;
-    }
 
-/*
-    public boolean blockIPListContains (String source, String dest)  {
-        ResultSet resSet;
+    public boolean blockListContains (final String address, final String port)  {
         int indexName = 0;
-        synchronized (Main.db.statement) {
-            try {
-                resSet = Main.db.select("SELECT COUNT(1) from ips where exists (select null from ips where ip in ('" + source + "', '" + dest + "'))");
 
-                indexName = 0;
-                if (resSet.next()) {
-                    indexName = resSet.getInt(1);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+        try {
+            List<Pair<String, String>> values= new ArrayList<Pair<String, String>>(){{
+                add(new Pair<>("ip", address));
+                add(new Pair<>("port", port));
+            }};
+
+            ResultSet resSet = dbAdapter.selectAllWith("list", values);
+
+            indexName = 0;
+            if (resSet.next()) {
+                indexName++;
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
 
         return indexName > 0;
     }
-
-    public boolean blockPortListContains (String source, String dest) {
-        ResultSet resSet;
-        int indexName = 0;
-        synchronized (Main.db.statement) {
-            try {
-                resSet = Main.db.select("SELECT COUNT(1) from ports where exists (select null from ports where port in ('" + source + "', '" + dest + "'))");
-
-                indexName = 0;
-                if (resSet.next()) {
-                    indexName = resSet.getInt(1);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return indexName > 0;
-    }*/
 }

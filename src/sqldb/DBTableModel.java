@@ -10,10 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
-/**
- * Created by v1ar on 03.11.14.
- */
+
 public class DBTableModel extends AbstractTableModel {
     // здесь мы будем хранить названия столбцов
     public ArrayList<String> columnNames;
@@ -23,7 +22,7 @@ public class DBTableModel extends AbstractTableModel {
     public ArrayList data;
     public ArrayList<String> ids;
 
-    public ArrayList<HashMap<String, String>> hashMaps;
+    public ArrayList<HashMap<String, String>> hashMapArrayList;
     public ArrayList<String> nameWithID;
 
 
@@ -33,13 +32,13 @@ public class DBTableModel extends AbstractTableModel {
         columnTypes = new ArrayList<Class<?>>();
         data = new ArrayList();
         ids = new ArrayList<String>();
-        hashMaps = new ArrayList<HashMap<String, String>>();
+        hashMapArrayList = new ArrayList<HashMap<String, String>>();
         nameWithID = new ArrayList<String>();
 
     }
 
     public void addData () {
-        ArrayList<Object> row = new ArrayList<Object>();
+        List<Object> row = new ArrayList<Object>();
         for ( int i = 0; i < getColumnCount(); i++) {
             row.add( "" );
         }
@@ -102,6 +101,7 @@ public class DBTableModel extends AbstractTableModel {
     public void setMetaData (ResultSet rs) throws Exception {
         columnNames.clear();
         columnTypes.clear();
+        //hashMapArrayList.clear();
         // получаем вспомогательную информацию о столбцах
         ResultSetMetaData rsmd = rs.getMetaData();
         for (int i = 1 /*0*/; i < rsmd.getColumnCount(); i++) {
@@ -116,6 +116,7 @@ public class DBTableModel extends AbstractTableModel {
     public void setMetaDataForQuery (ResultSet rs) throws Exception {
         columnNames.clear();
         columnTypes.clear();
+        //hashMapArrayList.clear();
         // получаем вспомогательную информацию о столбцах
         ResultSetMetaData rsmd = rs.getMetaData();
         for (int i = 0; i < rsmd.getColumnCount(); i++) {
@@ -132,19 +133,22 @@ public class DBTableModel extends AbstractTableModel {
         for (String name: columnNames) {
             if (name.contains("id") && name.compareTo("id") != 0) { // имя колонки содержит id
                 nameWithID.add(name.replaceAll("id", ""));
-                hashMaps.add(new HashMap<String, String>(){{
-                    put("  ","null");
+                hashMapArrayList.add(new HashMap<String, String>() {{
+                    put("  ", "null");
                 }});
             }
         }
-        // заполнение хещ
-        for (int i = 0; i < nameWithID.size(); i++) {
 
-            ResultSet resSet = db.select("SELECT id, name FROM " + nameWithID.get(i) );
+        for (int i = 0; i < nameWithID.size(); i++) {
+            ArrayList<String> fields = new ArrayList<String>(){{
+               add("id");
+               add("name");
+            }};
+            ResultSet resSet = db.select(fields, nameWithID.get(i) );
             while ( resSet.next() ) { // получаем данные [name, id]
                 String s1 = resSet.getString(2).trim();
                 String s2 = String.valueOf(resSet.getInt(1));
-                hashMaps.get(i).put(s1, s2);
+                hashMapArrayList.get(i).put(s1, s2);
             }
         }
     }
@@ -173,7 +177,8 @@ public class DBTableModel extends AbstractTableModel {
             for ( int i = 0; i < columnNames.size(); i++) {
                 if (columnNames.get(i).contains("id")) {
                     try {
-                        HashMap<String, String> hm = hashMaps.get(nameWithID.indexOf( columnNames.get(i).replaceAll("id", "") ));
+                        String columnName = columnNames.get(i).replaceAll("id", "");
+                        HashMap<String, String> hm = hashMapArrayList.get(nameWithID.indexOf( columnName ));
                         row.add( hashMapGetKey(hm, rs.getString(i+2).trim()) );
                     } catch (NullPointerException ex) {
                         row.add("");

@@ -13,7 +13,8 @@ public class Main {
         // Windows style for interface
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException e1) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException
+                    | IllegalAccessException | InstantiationException e1) {
             e1.printStackTrace();
         }
 

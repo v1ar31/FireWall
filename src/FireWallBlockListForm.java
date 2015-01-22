@@ -1,3 +1,4 @@
+import javafx.util.Pair;
 import sqldb.DBAdapter;
 import sqldb.DBTableModel;
 
@@ -9,6 +10,7 @@ import java.net.InetAddress;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -111,7 +113,11 @@ public class FireWallBlockListForm extends JFrame{
         refreshBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateDB();
+                try {
+                    updateDB();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
@@ -156,10 +162,16 @@ public class FireWallBlockListForm extends JFrame{
                     if (netAddressTextField.getText().trim().compareTo("") != 0) {
                         InetAddress.getByName(netAddressTextField.getText().trim());
 
-                        db.insert("insert into names (name) values ('" + netAddressTextField.getText().trim() + "')");
+                        ArrayList<String> columns = DBAdapter.initArrayList("name");
+                        ArrayList<String> values = DBAdapter.initArrayList(netAddressTextField.getText().trim());
+
+                        db.insert("names", columns, values);
 
                         int indexName;
-                        ResultSet resSet = db.select("select * from names where name = '" + netAddressTextField.getText().trim() + "'");
+                        ArrayList<Pair<String, String>> val = new ArrayList<Pair<String, String>>(){{
+                            add(new Pair<>("name", netAddressTextField.getText().trim()));
+                        }};
+                        ResultSet resSet = db.selectAllWith("names", val);
                         indexName = 0;
                         if (resSet != null) {
                             while (resSet.next()) {
@@ -177,6 +189,8 @@ public class FireWallBlockListForm extends JFrame{
                     }
                 } catch (SQLException | InterruptedException | IOException e1) {
                     e1.printStackTrace();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
             }
         });
@@ -187,7 +201,10 @@ public class FireWallBlockListForm extends JFrame{
                 try {
                     if (netAddressTextField.getText().trim().compareTo("") != 0) {
 
-                        ResultSet resSet = db.select("select * from names where name = '" + netAddressTextField.getText().trim() + "'");
+                        ArrayList<Pair<String, String>> values= new ArrayList<Pair<String, String>>(){{
+                            add(new Pair<>("name", netAddressTextField.getText().trim()));
+                        }};
+                        ResultSet resSet = db.selectAllWith("names", values);
                         int indexName = 0;
                         if (resSet != null) {
                             while (resSet.next()) {
@@ -195,13 +212,17 @@ public class FireWallBlockListForm extends JFrame{
                             }
                         }
                         if (indexName > 0) {
-                            db.delete("delete from names where id = " + Integer.toString(indexName));
-                            db.delete("delete from list where namesid = " + Integer.toString(indexName));
+                            db.delete("names", "id", Integer.toString(indexName) );
+                            db.delete("list", "namesid", Integer.toString(indexName) );
+
                             updateDB();
+
                             netAddressTextField.setText("");
                         }
                     }
                 } catch (SQLException e1) {
+                    e1.printStackTrace();
+                } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
@@ -226,13 +247,17 @@ public class FireWallBlockListForm extends JFrame{
         for ( int i = 0; i < nameListOfTables.length; i++) {
             dbjTableArrayList.get(i).setModel(dbTableModelArrayList.get(i));
         }
-        updateDB(); // заполнение таблиц
+        try {
+            updateDB(); // заполнение таблиц
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
     private int getSQLquery (String query) {
         try {
-            ResultSet resSet = db.select(query);
+            ResultSet resSet = db.selectQuery(query);
             sqlQueryTableModel.setMetaDataForQuery(resSet);
             sqlQueryTableModel.setDataSourceForQuery(resSet); // заполняем
             return 0;
@@ -243,47 +268,48 @@ public class FireWallBlockListForm extends JFrame{
     }
 
     // обновляем записей формы
-    public int updateDB ()  {
-        try {
+    public void updateDB () throws Exception {
             for (int i = 0; i < nameListOfTables.length; i++) {
-                ResultSet resSet = db.select("SELECT * FROM " + nameListOfTables[ i ] );
+                ResultSet resSet = db.selectAll(nameListOfTables[i]);
 
                 // применяем к нужной таблице на форме
                 dbTableModelArrayList.get(i).setMetaData(resSet); // определяем структуру таблиц
                 dbTableModelArrayList.get(i).setHashes(db); // ставим хеши для полей id, где они [name, id]
 
-                resSet = db.select("SELECT * FROM " + nameListOfTables[ i ] );
+                resSet = db.selectAll(nameListOfTables[i]);
                 dbTableModelArrayList.get(i).setDataSource(resSet); // заполняем таблицы
                 // добавление combobox на таблицу
                 for (int j = 0; j < dbTableModelArrayList.get(i).nameWithID.size(); j++) {
-                    Set<String> keys = dbTableModelArrayList.get(i).hashMaps.get(j).keySet();
-                    JComboBox<Object> combo = new JComboBox<Object>(keys.toArray());
+                    Set<String> keys = dbTableModelArrayList.get(i).hashMapArrayList.get(j).keySet();
+                    Object[] obj = keys.toArray();
+                    Arrays.sort(obj);
+                    JComboBox<Object> combo = new JComboBox<Object>(obj);
                     TableColumn tbcol = dbjTableArrayList.get(i).getColumnModel()
                             .getColumn(dbTableModelArrayList.get(i).columnNames
                                     .indexOf(dbTableModelArrayList.get(i).nameWithID.get(j) + "id"));
                     tbcol.setCellEditor(new DefaultCellEditor(combo));
                 }
             }
-            return 0;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return updateDB();
-        }
     }
 
     private abstract class wrapper {
-        protected abstract void method_sql(int selectRow, DBTableModel DB) throws SQLException;
-        private void wrapper_method (int selectRow) throws SQLException {
+        protected abstract void sqlMethod(int selectRow, DBTableModel DB) throws SQLException;
+        private void wrapperMethod(int selectRow) throws SQLException {
             DBTableModel DB = dbTableModelArrayList.get( tabbedPane.getSelectedIndex() );
-            dbjTableArrayList.get(tabbedPane.getSelectedIndex()).getCellEditor().stopCellEditing();
-            method_sql(selectRow, DB);
+            try {
+                dbjTableArrayList.get(tabbedPane.getSelectedIndex()).getCellEditor().stopCellEditing();
+            } catch (NullPointerException e) {
+                // it doesn't matter
+            }
+
+            sqlMethod(selectRow, DB);
         }
 
         public void run() {
             if (dbjTableArrayList.get( tabbedPane.getSelectedIndex() ).getSelectedRowCount() != 0) {
                 for (int selectRow: dbjTableArrayList.get( tabbedPane.getSelectedIndex() ).getSelectedRows()) {
                     try {
-                        wrapper_method(selectRow); // обернутый метод
+                        wrapperMethod(selectRow); // обернутый метод
                     } catch (SQLException e) {
                         e.printStackTrace();
                         JOptionPane.showMessageDialog(famePanel,"Ошибка " + e);
@@ -291,7 +317,11 @@ public class FireWallBlockListForm extends JFrame{
                     }
                 }
 
-                updateDB();
+                try {
+                    updateDB();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 JOptionPane.showMessageDialog(famePanel,"Успешно завершено.");
             } else {
                 JOptionPane.showMessageDialog(famePanel,"Не выделена запись.");
@@ -301,61 +331,52 @@ public class FireWallBlockListForm extends JFrame{
 
     public class deleteSelectRecordFromBD extends wrapper {
         @Override
-        protected void method_sql(int selectRow, DBTableModel DB) throws SQLException {
-            db.delete("DELETE FROM " + nameListOfTables[tabbedPane.getSelectedIndex()]
-                    + " WHERE " + "id = " + DB.ids.get(selectRow));
+        protected void sqlMethod(int selectRow, DBTableModel DB) throws SQLException {
+            db.delete(nameListOfTables[tabbedPane.getSelectedIndex()], "id", DB.ids.get(selectRow));
         }
     }
 
     public class insertSelctRecordFromBD extends wrapper {
         @Override
-        protected void method_sql (int selectRow, DBTableModel DB)  throws SQLException {
-            String tmp = "";
-            String tmp2 = "";
+        protected void sqlMethod(int selectRow, DBTableModel DB)  throws SQLException {
+            ArrayList<String> columns = new ArrayList<>();
+            ArrayList<String> values = new ArrayList<>();
             for (int i = 0; i < DB.getColumnCount(); i++) {
-                if (DB.columnNames.get(i).contains("id")) {
-                    HashMap<String, String> hm = DB.hashMaps.get(DB.nameWithID.indexOf( DB.columnNames.get(i).replaceAll("id", "") ));
-                    tmp += "'" + hm.get(((ArrayList<String>)DB.data.get(selectRow)).get(i)) + "'";
-                } else {
-                    tmp += "'" + ((ArrayList<String>)DB.data.get(selectRow)).get(i) + "'";
-                }
-                tmp2 += DB.columnNames.get(i);
-                if (i < DB.getColumnCount()-1) {
-                    tmp += ", ";
-                    tmp2 += ", ";
-                }
+                columns.add(DB.columnNames.get(i));
+                values.add(getValueFromCell(selectRow, i, DB));
             }
-            // делает INSERT INTO Messages () VALUES( tmp )"
-            db.insert(String.format("INSERT INTO %s(%s) VALUES(%s)", nameListOfTables[tabbedPane.getSelectedIndex()], tmp2, tmp));
+
+            db.insert(nameListOfTables[tabbedPane.getSelectedIndex()], columns, values);
 
         }
     }
 
     public class updateSelectRecordFromBD extends wrapper {
         @Override
-        protected void method_sql (int selectRow, DBTableModel DB) throws SQLException {
-            String tmp = "";
+        protected void sqlMethod(int selectRow, DBTableModel DB) throws SQLException {
+            ArrayList<Pair<String, String>> set = new ArrayList<>();
+            Pair<String, String> pair;
             for (int i = 0; i < DB.getColumnCount(); i++) {
-                tmp += DB.columnNames.get(i) + " = ";
-                if (DB.columnNames.get(i).contains("id")) {
-                    HashMap<String, String> hm = DB.hashMaps.get(DB.nameWithID.indexOf( DB.columnNames.get(i).replaceAll("id", "") ));
-                    String val = hm.get(((ArrayList<String>)DB.data.get(selectRow)).get(i));
-                    if (val.compareTo("null") != 0) {
-                        tmp += "'" + val + "'";
-                    } else {
-                        tmp += val;
-                    }
-                } else {
-                    tmp += "'" + ((ArrayList<String>)DB.data.get(selectRow)).get(i) + "'";
-                }
-                if (i != DB.columnNames.size()-1) {
-                    tmp += ", ";
-                }
+                pair = new Pair<>(DB.columnNames.get(i), getValueFromCell(selectRow, i, DB));
+                set.add(pair);
             }
 
-            db.update("UPDATE " + nameListOfTables[tabbedPane.getSelectedIndex()]
-                    + " SET " + tmp + " WHERE " + "id = " + DB.ids.get(selectRow));
+            db.update(nameListOfTables[tabbedPane.getSelectedIndex()], set, DB.ids.get(selectRow));
 
         }
+    }
+
+    private String getValueFromCell(int selectRow, int col, DBTableModel DB) {
+        String colValueInSelectRow = ((ArrayList<String>) DB.data.get(selectRow)).get(col);
+        String value;
+        if (DB.columnNames.get(col).contains("id")) {
+            String colName = DB.columnNames.get(col).replaceAll("id", "");
+            HashMap<String, String> hm = DB.hashMapArrayList.get(DB.nameWithID.indexOf(colName));
+            value = hm.get(colValueInSelectRow);
+        } else {
+            value = colValueInSelectRow;
+        }
+
+        return value;
     }
 }

@@ -47,7 +47,11 @@ public class JournalFrame extends JDialog implements Observer {
     }
 
     @Override
-    public void update(int direction, String address, String port) {
+    public void update(int direction, String address, String port) throws NotificationException {
+        if ((address == null) && (port == null)) {
+            throw new NotificationException("null addresses and port");
+        }
+
         String tmp = "Заблокирован Пакет: ";
         tmp += address + ":" + port;
         tmp += (direction == FireWallFilterService.DIRECTION_OUTBOUND)? " - >> OUT"

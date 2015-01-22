@@ -1,8 +1,13 @@
 import sqldb.DBAdapter;
 
 import java.io.IOException;
+import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 public class NetInformer extends Thread {
  
@@ -25,11 +30,20 @@ public class NetInformer extends Thread {
  
     public void run()  {
         try {
-            InetAddress[] addresses = InetAddress.getAllByName(this.host);
+            List<InetAddress> addresses = new ArrayList<>(Arrays.asList(InetAddress.getAllByName(this.host)));
+            addresses.addAll(Arrays.asList(Inet6Address.getAllByName(this.host)));
+            HashSet<InetAddress> hs = new HashSet<InetAddress>();
+            hs.addAll(addresses);
+            addresses.clear();
+            addresses.addAll(hs);
+
+            List<String> fields = DBAdapter.initArrayList("namesid", "ip", "port");
 
             for (InetAddress address: addresses) {
-                db.insert("insert into ips (ip,namesid) values ('" + address.getHostAddress()
-                        + "', " + Integer.toString(indexName) + ")");
+                final String addr = address.getHostAddress();
+                List<String> values = DBAdapter.initArrayList( Integer.toString(indexName), addr, null);
+
+                db.insert("list", fields, values);
             }
 
         } catch (IOException e) {
