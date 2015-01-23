@@ -1,5 +1,6 @@
 import javafx.util.Pair;
 import sqldb.DBAdapter;
+import sqldb.DBAdapterSQLite;
 import windivert.FilterService;
 import windivert.HeaderIPv4;
 import windivert.HeaderIPv6;
@@ -23,7 +24,7 @@ public class FireWallFilterService extends FilterService {
         super();
         fireWall = SingleFireWall.getInstance();
         try {
-            dbAdapter = DBAdapter.getInstance();
+            dbAdapter = DBAdapterSQLite.getInstance();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

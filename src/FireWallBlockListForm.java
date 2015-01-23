@@ -1,5 +1,6 @@
 import javafx.util.Pair;
 import sqldb.DBAdapter;
+import sqldb.DBAdapterSQLite;
 import sqldb.DBTableModel;
 
 import javax.swing.*;
@@ -56,7 +57,7 @@ public class FireWallBlockListForm extends JFrame{
     public FireWallBlockListForm() {
         super();
         try {
-            this.db = DBAdapter.getInstance();
+            this.db = DBAdapterSQLite.getInstance();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

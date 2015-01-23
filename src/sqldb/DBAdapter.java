@@ -7,33 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DBAdapter {
-    protected final String NAME_JDBC_CLASS = "org.sqlite.JDBC";
-    protected final String NAME_DB = "jdbc:sqlite:resources/blockList.sqlite3";
-    protected static volatile DBAdapter instance;
-
+public abstract class DBAdapter {
     protected Connection connection;
 
-
-    public static DBAdapter getInstance() throws SQLException, ClassNotFoundException {
-        if (instance == null) {
-            synchronized (DBAdapter.class) {
-                if (instance == null) {
-                    instance = new DBAdapter();
-                }
-            }
-        }
-        return instance;
-    }
-
-    public DBAdapter() throws ClassNotFoundException, SQLException {
-        Class.forName(NAME_JDBC_CLASS);
-        connection = DriverManager.getConnection(NAME_DB);
-    }
+    public DBAdapter() throws ClassNotFoundException, SQLException { }
 
 
     public ResultSet selectQuery(String sqlQuery) throws SQLException {
-
         synchronized (connection) {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sqlQuery);

@@ -7,6 +7,7 @@ public class JournalFrame extends JDialog implements Observer {
     private JPanel contentPane;
     private JButton cancelBtn;
     private JTextArea textArea;
+    private JButton saveToButton;
 
     public JournalFrame() {
         constructJournalFrame();

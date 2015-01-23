@@ -43,7 +43,7 @@ public abstract class FilterService extends Thread {
 
                 divertDriver.sendPacket(packet);
             } catch (WinDivertException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }
 
