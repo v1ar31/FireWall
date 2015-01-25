@@ -163,7 +163,7 @@ public class FireWallMainForm extends JFrame{
                             TrayIcon.MessageType.INFO);
                     trayIcon.setImage(Toolkit.getDefaultToolkit().getImage(imageWork));
                  } catch (FireWallException ex) {
-                     trayIcon.displayMessage(APPLICATION_NAME, "Приложение уже запущено",
+                     trayIcon.displayMessage(APPLICATION_NAME, "Ошибка запуска",
                              TrayIcon.MessageType.INFO);
                  }
             }

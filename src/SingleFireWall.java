@@ -1,5 +1,6 @@
 import windivert.FilterService;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -42,9 +43,13 @@ public class SingleFireWall extends Observable {
         if (isStarted()) {
             throw new FireWallException("it is already launched");
         }
-        filterService = new FireWallFilterService();
-        filterService.start();
-        setStarted(true);
+        try {
+            filterService = new FireWallFilterService();
+            filterService.start();
+            setStarted(true);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new FireWallException("it wasn't succeeded to create a filter");
+        }
     }
 
     public void stopFilter() throws FireWallException {
