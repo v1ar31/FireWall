@@ -10,8 +10,12 @@ import java.util.List;
 public abstract class DBAdapter {
     protected Connection connection;
 
-    public DBAdapter() throws ClassNotFoundException, SQLException { }
+    public DBAdapter() {}
 
+    public void init(String className, String dbName) throws ClassNotFoundException, SQLException {
+        Class.forName(className);
+        connection = DriverManager.getConnection(dbName);
+    }
 
     public ResultSet selectQuery(String sqlQuery) throws SQLException {
         synchronized (connection) {

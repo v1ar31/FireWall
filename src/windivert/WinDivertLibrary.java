@@ -54,10 +54,13 @@ public interface WinDivertLibrary extends Library {
 	
 
 	HANDLE WinDivertOpen(String filter, int layer, short priority, long flags);
+
 	boolean WinDivertRecv(HANDLE handle, byte [] pPacket, int packetLen,
                           WINDIVERT_ADDRESS pAddr, IntByReference readLen);
+
 	boolean WinDivertSend(HANDLE handle, byte [] pPacket, int packetLen,
                           WINDIVERT_ADDRESS pAddr, int writeLen);
+
 	boolean DivertClose(HANDLE handle);
 
 

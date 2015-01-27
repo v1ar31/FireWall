@@ -15,15 +15,15 @@ import java.util.List;
 
 public class DBTableModel extends AbstractTableModel {
     // здесь мы будем хранить названия столбцов
-    public ArrayList<String> columnNames;
+    public List<String> columnNames;
     // список типов столбцов
-    public ArrayList<Class<?>> columnTypes;
+    public List<Class<?>> columnTypes;
     // хранилище для полученных данных из базы данных
-    public ArrayList data;
-    public ArrayList<String> ids;
+    public List data;
+    public List<String> ids;
 
-    public ArrayList<HashMap<String, String>> hashMapArrayList;
-    public ArrayList<String> nameWithID;
+    public List<HashMap<String, String>> hashMapArrayList;
+    public List<String> nameWithID;
 
 
     // конструктор позволяет задать возможность редактирования
@@ -140,10 +140,7 @@ public class DBTableModel extends AbstractTableModel {
         }
 
         for (int i = 0; i < nameWithID.size(); i++) {
-            ArrayList<String> fields = new ArrayList<String>(){{
-               add("id");
-               add("name");
-            }};
+            List<String> fields = DBAdapter.initArrayList("id", "name");
             ResultSet resSet = db.select(fields, nameWithID.get(i) );
             while ( resSet.next() ) { // получаем данные [name, id]
                 String s1 = resSet.getString(2).trim();
@@ -171,7 +168,7 @@ public class DBTableModel extends AbstractTableModel {
         fireTableStructureChanged(); // сообщаем об изменениях в структуре данных
         while ( rs.next() ) { // получаем данные
             // здесь будем хранить ячейки одной строки
-            ArrayList<String> row = new ArrayList<String>();
+            List<String> row = new ArrayList<String>();
             ids.add(String.valueOf(rs.getInt(1))); // id для всех полей
             System.out.println();
             for ( int i = 0; i < columnNames.size(); i++) {
@@ -232,7 +229,7 @@ public class DBTableModel extends AbstractTableModel {
 
         while ( rs.next() ) { // получаем данные
             // здесь будем хранить ячейки одной строки
-            ArrayList<Object> row = new ArrayList<>();
+            List<Object> row = new ArrayList<>();
             ids.add(String.valueOf(rs.getInt(1))); // id для всех полей
             for ( int i = 0; i < columnNames.size(); i++) {
                 if ( columnTypes.get(i) == java.lang.String.class ) {

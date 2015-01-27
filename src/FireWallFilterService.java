@@ -20,8 +20,12 @@ public class FireWallFilterService extends FilterService {
     private SingleFireWall fireWall;
     private DBAdapter dbAdapter;
 
-    public FireWallFilterService() throws SQLException, ClassNotFoundException {
+    public FireWallFilterService() {
         super();
+
+    }
+
+    public void init() throws SQLException, ClassNotFoundException {
         fireWall = SingleFireWall.getInstance();
         dbAdapter = DBAdapterSQLite.getInstance();
     }

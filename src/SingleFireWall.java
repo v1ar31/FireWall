@@ -45,6 +45,7 @@ public class SingleFireWall extends Observable {
         }
         try {
             filterService = new FireWallFilterService();
+            ((FireWallFilterService) filterService).init();
             filterService.start();
             setStarted(true);
         } catch (SQLException | ClassNotFoundException e) {
