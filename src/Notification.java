@@ -9,7 +9,7 @@ public class Notification implements Observer {
     public ArrayDeque<Pair<String, String>> incomingPackets;
 
     Notification () {
-        incomingPackets = new ArrayDeque<Pair<String, String>>();
+        incomingPackets = new ArrayDeque<>();
     }
 
     @Override
@@ -19,7 +19,7 @@ public class Notification implements Observer {
             throw new NotificationException("null addresses and port");
         }
 
-        Pair<String, String> packet = new Pair<String, String>(address, port);
+        Pair<String, String> packet = new Pair<>(address, port);
         if (!incomingPackets.contains(packet)) {
             String nameService = "";
             // тут можно будет определить имя сервиса, которое в БД

@@ -63,9 +63,7 @@ public class JournalFrame extends JDialog implements Observer {
 
     @Override
     public void registerIn(Observable o) {
-        synchronized (o) {
-            o.registerObserver(this);
-        }
+        o.registerObserver(this);
     }
 
 }

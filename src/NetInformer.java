@@ -32,7 +32,7 @@ public class NetInformer extends Thread {
         try {
             List<InetAddress> addresses = new ArrayList<>(Arrays.asList(InetAddress.getAllByName(this.host)));
             addresses.addAll(Arrays.asList(Inet6Address.getAllByName(this.host)));
-            HashSet<InetAddress> hs = new HashSet<InetAddress>();
+            HashSet<InetAddress> hs = new HashSet<>();
             hs.addAll(addresses);
             addresses.clear();
             addresses.addAll(hs);
@@ -46,9 +46,7 @@ public class NetInformer extends Thread {
                 db.insert("list", fields, values);
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
     }

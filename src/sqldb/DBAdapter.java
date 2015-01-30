@@ -4,6 +4,7 @@ import javafx.util.Pair;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -18,131 +19,89 @@ public abstract class DBAdapter {
     }
 
     public ResultSet selectQuery(String sqlQuery) throws SQLException {
-        synchronized (connection) {
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(sqlQuery);
-            return rs;
-        }
+        Statement statement = connection.createStatement();
+        return statement.executeQuery(sqlQuery);
     }
 
     /**
      * select [field, ..] from [name_table]
-     * @param fields
-     * @param nameTable
-     * @return
-     * @throws SQLException
      */
     public ResultSet select(List<String> fields, String nameTable) throws SQLException {
-
-
-        synchronized (connection) {
-            String sqlQuery = String.format("SELECT %s FROM %s", arrayToStr(fields), nameTable );
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-
-            ResultSet rs = preparedStatement.executeQuery();
-            return rs;
-        }
+        String sqlQuery = String.format("SELECT %s FROM %s", arrayToStr(fields), nameTable );
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        return preparedStatement.executeQuery();
     }
 
     /**
      * select * from [table_name] where [field] is [value] and..
-     * @param nameTable
-     * @return result_set
-     * @throws SQLException
      */
     public ResultSet selectAllWith(String nameTable, List<Pair<String, String>> set) throws SQLException {
-        synchronized (connection) {
-            String sqlQuery = String.format("SELECT * FROM %s WHERE %s", nameTable, setToStr(set, " AND ", " is "));
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            int i = 1;
-            for (Pair<String, String> pair: set) {
-                preparedStatement.setString(i++, pair.getValue());
-            }
-
-            ResultSet rs = preparedStatement.executeQuery();
-            return rs;
+        String sqlQuery = String.format("SELECT * FROM %s WHERE %s", nameTable, setToStr(set, " AND ", " is "));
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        int i = 1;
+        for (Pair<String, String> pair: set) {
+            preparedStatement.setString(i++, pair.getValue());
         }
+        return preparedStatement.executeQuery();
     }
 
     /**
      * select * from [table_name]
-     * @param nameTable
-     * @return result_set
-     * @throws SQLException
      */
     public ResultSet selectAll(String nameTable) throws SQLException {
-        synchronized (connection) {
             String sqlQuery = String.format("SELECT * FROM %s", nameTable);
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-
-            ResultSet rs = preparedStatement.executeQuery();
-            return rs;
-        }
+            return preparedStatement.executeQuery();
     }
 
     /**
      * delete from [table_name] where [field] = [value]
-     * @param nameTable
-     * @throws SQLException
      */
     public void delete(String nameTable, String field, String value) throws SQLException {
-        synchronized (connection) {
-            String sqlQuery = String.format("DELETE FROM %s WHERE %s = ?", nameTable, field);
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            int i = 1;
-            preparedStatement.setString(i, value);
-
-            preparedStatement.executeUpdate();
-        }
-
+        String sqlQuery = String.format("DELETE FROM %s WHERE %s = ?", nameTable, field);
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        int i = 1;
+        preparedStatement.setString(i, value);
+        preparedStatement.executeUpdate();
     }
 
     /**
      * insert into [name_table] ([column], ..) values ([value], ..)
-     * @param nameTable
      * @param columns [column], ..
      * @param values [value], ..
      * @throws SQLException
      */
     public void insert(String nameTable, List<String> columns, List<String> values) throws SQLException {
-        synchronized (connection) {
-            String sqlQuery = String.format("INSERT INTO %s (%s) VALUES (%s)", nameTable, arrayToStr(columns),
-                    generatePrepare(values.size()));
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            int i = 1;
-            for (String val: values) {
-                preparedStatement.setString(i++, val);
-            }
-
-            preparedStatement.executeUpdate();
+        String sqlQuery = String.format("INSERT INTO %s (%s) VALUES (%s)", nameTable, arrayToStr(columns),
+                generatePrepare(values.size()));
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        int i = 1;
+        for (String val: values) {
+            preparedStatement.setString(i++, val);
         }
+        preparedStatement.executeUpdate();
     }
 
     /**
      * update [name_table] set [[field = value], ..] where id = [id]
-     * @param nameTable
      * @param set [field = value], ..
      * @param id = [id]
      * @throws SQLException
      */
     public void update(String nameTable, List<Pair<String, String>> set, String id) throws SQLException {
-        synchronized (connection) {
-            String sqlQuery = String.format("UPDATE %s SET %s WHERE id = ?", nameTable, setToStr(set, ", ", " = "));
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            int i = 1;
-            for (Pair<String, String> pair: set) {
-                preparedStatement.setString(i++, pair.getValue());
-            }
-            preparedStatement.setString(i, id);
-
-            preparedStatement.executeUpdate();
+        String sqlQuery = String.format("UPDATE %s SET %s WHERE id = ?", nameTable, setToStr(set, ", ", " = "));
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        int i = 1;
+        for (Pair<String, String> pair: set) {
+            preparedStatement.setString(i++, pair.getValue());
         }
+        preparedStatement.setString(i, id);
+        preparedStatement.executeUpdate();
     }
 
     /**
      * numbers of "?, ?, .."
      * @param size numbers of ?
-     * @return
      */
     private String generatePrepare(int size) {
         String str = "";
@@ -157,8 +116,6 @@ public abstract class DBAdapter {
 
     /**
      * transform array [arr1, arr2, ..] to str "arr1, arr2, .."
-     * @param arr
-     * @return str
      */
     private String arrayToStr(List<String> arr) {
         String str = "";
@@ -173,8 +130,6 @@ public abstract class DBAdapter {
 
     /**
      * transform a set <field ,*> to a line of request of SET field = ?, ..
-     * @param set
-     * @return str
      */
     private String setToStr(List<Pair<String, String>> set, String seper, String equel) {
         String set2Str = "";
@@ -189,9 +144,7 @@ public abstract class DBAdapter {
 
     public static ArrayList<String> initArrayList(String ... strings) {
         ArrayList<String> ret = new ArrayList<>();
-        for (String str: strings) {
-            ret.add(str);
-        }
+        Collections.addAll(ret, strings);
         return ret;
     }
 }

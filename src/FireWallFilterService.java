@@ -32,7 +32,7 @@ public class FireWallFilterService extends FilterService {
 
     @Override
     public boolean filteredIPv4Header(HeaderIPv4 ipv4Header, int direction) {
-        String address = null;
+        String address;
         String Port = null;
 
         address = (direction == DIRECTION_OUTBOUND)? ipv4Header.destinationIPAddress
@@ -67,7 +67,7 @@ public class FireWallFilterService extends FilterService {
 
 
     public boolean blockListContains (final String address, final String port)  {
-        int indexName = 0;
+        int indexName;
 
         try {
             List<Pair<String, String>> values= new ArrayList<Pair<String, String>>(){{

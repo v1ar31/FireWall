@@ -12,8 +12,6 @@ public class HeaderIPv4 extends Header {
     public byte ttl;
     public byte protocol;
     public short headerChecksum;
-    private final int sourceIPAddressINT;
-    private final int destinationIPAddressINT;
     public String sourceIPAddress;
     public String destinationIPAddress;
     public int options;
@@ -48,8 +46,8 @@ public class HeaderIPv4 extends Header {
         headerChecksum = (short) concatBytes(packetBytes[10], packetBytes[11]);
 
         // ip addr 8bytes
-        sourceIPAddressINT = (int) concatBytes(packetBytes[12], packetBytes[13], packetBytes[14], packetBytes[15]);
-        destinationIPAddressINT = (int) concatBytes(packetBytes[16], packetBytes[17], packetBytes[18], packetBytes[19]);
+        int sourceIPAddressINT = (int) concatBytes(packetBytes[12], packetBytes[13], packetBytes[14], packetBytes[15]);
+        int destinationIPAddressINT = (int) concatBytes(packetBytes[16], packetBytes[17], packetBytes[18], packetBytes[19]);
         sourceIPAddress = ws2_32.inet_ntoa(ws2_32.ntohl(sourceIPAddressINT));
         destinationIPAddress = ws2_32.inet_ntoa(ws2_32.ntohl(destinationIPAddressINT));
 

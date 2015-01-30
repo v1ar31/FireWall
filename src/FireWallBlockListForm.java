@@ -231,12 +231,12 @@ public class FireWallBlockListForm extends JFrame{
     }
 
     private void initTables () {
-        dbjTableArrayList = new ArrayList<JTable>();
+        dbjTableArrayList = new ArrayList<>();
         dbjTableArrayList.add(namesTable);
         dbjTableArrayList.add(listTable);
         // создание моделей БД
-        dbTableModelArrayList = new ArrayList<DBTableModel>(); // модель для работы с БД
-        for (String aListTablesDB : nameListOfTables) {
+        dbTableModelArrayList = new ArrayList<>(); // модель для работы с БД
+        for (String ignored : nameListOfTables) {
             dbTableModelArrayList.add(new DBTableModel());
         }
         sqlQueryTableModel = new DBTableModel();
@@ -284,7 +284,7 @@ public class FireWallBlockListForm extends JFrame{
                     Set<String> keys = dbTableModelArrayList.get(i).hashMapArrayList.get(j).keySet();
                     Object[] obj = keys.toArray();
                     Arrays.sort(obj);
-                    JComboBox<Object> combo = new JComboBox<Object>(obj);
+                    JComboBox<Object> combo = new JComboBox<>(obj);
                     TableColumn tbcol = dbjTableArrayList.get(i).getColumnModel()
                             .getColumn(dbTableModelArrayList.get(i).columnNames
                                     .indexOf(dbTableModelArrayList.get(i).nameWithID.get(j) + "id"));
@@ -368,7 +368,7 @@ public class FireWallBlockListForm extends JFrame{
     }
 
     private String getValueFromCell(int selectRow, int col, DBTableModel DB) {
-        String colValueInSelectRow = ((ArrayList<String>) DB.data.get(selectRow)).get(col);
+        String colValueInSelectRow = DB.data.get(selectRow).get(col);
         String value;
         if (DB.columnNames.get(col).contains("id")) {
             String colName = DB.columnNames.get(col).replaceAll("id", "");

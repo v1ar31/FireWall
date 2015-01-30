@@ -4,8 +4,6 @@ public abstract class FilterService extends Thread {
     final private int IPV4 = 4;
     final private int IPV6 = 6;
 
-    private boolean isStarted;
-
     private WinDivertDriver divertDriver;
 
     public FilterService() {
@@ -16,6 +14,7 @@ public abstract class FilterService extends Thread {
 		// 2. Main form is forbidden on this level       { FIX }
 
     public void run() {
+        boolean isStarted;
         try {
             divertDriver.openWinDivert();
             isStarted = true;
@@ -52,8 +51,6 @@ public abstract class FilterService extends Thread {
         } catch (WinDivertException e) {
             e.printStackTrace();
         }
-        isStarted = false;
-
     }
 
     public abstract boolean filteredIPv4Header (HeaderIPv4 ipv4Header, int direction);
